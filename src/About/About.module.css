@@ -1,0 +1,12 @@
+.article {
+    padding: 30px;
+}
+
+.title {
+    font-size: 20px !important;
+}
+
+.text {
+    font-size: 18px;
+    font-family: 'Inconsolata', monospace;
+}

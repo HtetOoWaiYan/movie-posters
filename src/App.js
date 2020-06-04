@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link,
+} from "react-router-dom";
 import Posters from './Posters/Posters'
+import About from './About/About'
 import './App.css';
 import styles from './App.module.css';
 import { Layout, Menu, Input } from 'antd';
@@ -20,37 +27,49 @@ const App = props => {
 
     return (
         <Layout className="layout">
-            <Header>
-                <div className={styles.viewpoint}>
-
-                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-                        <Menu.Item style={{ float: 'left' }}>
-                            <a href="/">
-                                <img src="logo.png" className={styles.logo} />
-                                <span className={styles.brand}>Movie Posters</span>
-                            </a>
-                        </Menu.Item>
-                        <Menu.Item key="2" style={{ float: 'right' }}>About</Menu.Item>
-                        <Menu.Item key="1" style={{ float: 'right' }}>Posters</Menu.Item>
-                    </Menu>
-                </div>
-            </Header>
-            <Content>
-                <div className={styles.viewpoint}>
-                    <Search
-                        placeholder="Search movies"
-                        enterButton
-                        size="large"
-                        onSearch={value => console.log(value)}
-                        className={styles.search}
-                    />
-                    <Posters movies={movies} />
-                </div>
-            </Content>
-            <Footer className={styles.footer}>
-                Movie data from <a href="https://themoviedb.com">TMDb</a><br/>
-                Icons made by <a href="https://www.flaticon.com/authors/nhor-phai" title="Nhor Phai">Nhor Phai</a> from <a href="https://www.flaticon.com/" title="Flaticon"> flaticon</a>
-            </Footer>
+            <Router>
+                <Header style={{ padding: '0' }}>
+                    <div className={styles.viewpoint}>
+                        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+                            <Menu.Item key="1" style={{ float: 'left', background: 'none' }}>
+                                <Link to="/">
+                                    <img src="logo.png" className={styles.logo} />
+                                    <span className={styles.brand}>Movie Posters</span>
+                                </Link>
+                            </Menu.Item>
+                            <Menu.Item key="2" style={{ float: 'right' }}>
+                                <Link to="/about">About</Link>
+                            </Menu.Item>
+                            <Menu.Item key="1" style={{ float: 'right' }}>
+                                <Link to="/">Posters</Link>
+                            </Menu.Item>
+                        </Menu>
+                    </div>
+                </Header>
+                <Content>
+                    <div className={styles.viewpoint}>
+                        <Switch>
+                            <Route exact path="/">
+                                <Search
+                                    placeholder="Search movies"
+                                    enterButton
+                                    size="large"
+                                    onSearch={value => console.log(value)}
+                                    className={styles.search}
+                                />
+                                <Posters movies={movies} />
+                            </Route>
+                            <Route exact path="/about">
+                                <About />
+                            </Route>
+                        </Switch>
+                    </div>
+                </Content>
+                <Footer className={styles.footer}>
+                    Movie data from <a href="https://themoviedb.com">TMDb</a><br/>
+                    Icons made by <a href="https://www.flaticon.com/authors/nhor-phai" title="Nhor Phai">Nhor Phai</a> from <a href="https://www.flaticon.com/" title="Flaticon"> flaticon</a>
+                </Footer>
+            </Router>
         </Layout>
     )
 }
