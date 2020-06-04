@@ -1,12 +1,31 @@
+@import './colors.css';
+
 .viewpoint {
     width: 90%;
     margin: auto;
 }
 
-.content {
-    padding: 0 50px;
+/* Brand */
+.logo {
+    height: 55px;
+}
+.brand {
+    margin-left: 10px;
+    color: var(--gray2);
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 1.5px dotted var(--blue4);
 }
 
+/* Search box */
+.search {
+    display: block;
+    min-width: 200px;
+    max-width: 400px;
+    margin: 60px auto;
+}
+
+/* Footer */
 .footer {
     text-align: center;
 }

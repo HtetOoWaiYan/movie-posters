@@ -3,7 +3,9 @@ import styles from './Poster.module.css';
 
 const Poster = props => {
     return (
-        <img src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" className={styles.poster}/>
+        <a href="" >
+            <img src="https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg" className={styles.poster}/>
+        </a>
     );
 }
 

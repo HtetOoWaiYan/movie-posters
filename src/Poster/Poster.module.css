@@ -1,3 +1,14 @@
+@import '../colors.css';
+
 .poster {
-    width: 200px;
+    width: 160px;
+    border: 1px solid linear-gradient(to left, white, black);
+    border-radius: 5px;
+}
+
+.poster:hover {
+    transition: 0.5s;
+    filter: brightness(1.1);
+    box-shadow: 0 2px 1px -1px var(--gray8);
+    cursor: pointer;
 }
