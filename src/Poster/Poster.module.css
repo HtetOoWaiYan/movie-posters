@@ -8,7 +8,7 @@
 
 .poster:hover {
     transition: 0.5s;
-    filter: brightness(1.1);
-    box-shadow: 2px 2px 2px -1px var(--gray8);
+    filter: brightness(1.12);
+    box-shadow: 2px 2px 3px -1px var(--gray8);
     cursor: pointer;
 }

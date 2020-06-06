@@ -1,7 +1,7 @@
 import React from "react";
 import styles from './About.module.css';
-import { Typography, Divider } from 'antd';
-const { Title, Paragraph, Text } = Typography;
+import { Typography } from 'antd';
+const { Title, Paragraph } = Typography;
 
 const About = props => {
     return (

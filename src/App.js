@@ -33,7 +33,7 @@ const App = props => {
                         <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
                             <Menu.Item key="1" style={{ float: 'left', background: 'none' }}>
                                 <Link to="/">
-                                    <img src="logo.png" className={styles.logo} />
+                                    <img src="logo.png" alt="logo" className={styles.logo} />
                                     <span className={styles.brand}>Movie Posters</span>
                                 </Link>
                             </Menu.Item>

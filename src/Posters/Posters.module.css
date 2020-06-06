@@ -1,4 +1,4 @@
-.poster_list {
+.posters {
     display: grid;
     grid-gap: 20px;
     grid-template-columns: repeat(auto-fit, 160px);
