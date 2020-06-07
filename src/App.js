@@ -46,7 +46,7 @@ const App = props => {
                             <Route exact path="/about">
                                 <About />
                             </Route>
-                            <Route path="/poster">
+                            <Route path="/posters/:id">
                                 <PosterList />
                             </Route>
                         </Switch>
