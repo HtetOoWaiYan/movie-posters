@@ -16,7 +16,7 @@ const NavBar = props => {
                 <Menu theme="dark" mode="horizontal" selectedKeys={location.pathname === '/about' ? ['2'] : ['0', '1']}>
                     <Menu.Item key="0" style={{ float: 'left', background: 'none' }}>
                         <Link to="/">
-                            <img src="logo.png" alt="logo" className={styles.logo} />
+                            <img src={require('../logo.png')} alt="logo" className={styles.logo} />
                             <span className={styles.brand}>Movie Posters</span>
                         </Link>
                     </Menu.Item>
