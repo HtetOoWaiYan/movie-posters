@@ -3,14 +3,15 @@ import {
     BrowserRouter as Router,
     Switch,
     Route,
-    Link,
 } from "react-router-dom";
+import NavBar from './NavBar/NavBar'
 import Posters from './Posters/Posters'
 import About from './About/About'
+import PosterList from './PosterList/PosterList'
 import './App.css';
 import styles from './App.module.css';
-import { Layout, Menu, Input } from 'antd';
-const { Header, Content, Footer } = Layout;
+import { Layout, Input } from 'antd';
+const { Content, Footer } = Layout;
 const { Search } = Input;
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
@@ -28,24 +29,7 @@ const App = props => {
     return (
         <Layout className="layout">
             <Router>
-                <Header style={{ padding: '0' }}>
-                    <div className={styles.viewpoint}>
-                        <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
-                            <Menu.Item key="1" style={{ float: 'left', background: 'none' }}>
-                                <Link to="/">
-                                    <img src="logo.png" alt="logo" className={styles.logo} />
-                                    <span className={styles.brand}>Movie Posters</span>
-                                </Link>
-                            </Menu.Item>
-                            <Menu.Item key="2" style={{ float: 'right' }}>
-                                <Link to="/about">About</Link>
-                            </Menu.Item>
-                            <Menu.Item key="1" style={{ float: 'right' }}>
-                                <Link to="/">Posters</Link>
-                            </Menu.Item>
-                        </Menu>
-                    </div>
-                </Header>
+                <NavBar />
                 <Content>
                     <div className={styles.viewpoint}>
                         <Switch>
@@ -61,6 +45,9 @@ const App = props => {
                             </Route>
                             <Route exact path="/about">
                                 <About />
+                            </Route>
+                            <Route path="/poster">
+                                <PosterList />
                             </Route>
                         </Switch>
                     </div>

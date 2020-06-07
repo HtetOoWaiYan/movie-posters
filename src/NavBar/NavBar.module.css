@@ -1,0 +1,16 @@
+.viewpoint {
+    width: 80%;
+    margin: auto;
+}
+
+/* Brand */
+.logo {
+    height: 55px;
+}
+.brand {
+    margin-left: 10px;
+    color: var(--gray2);
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    border-bottom: 1.5px dotted var(--blue4);
+}
