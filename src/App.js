@@ -30,7 +30,7 @@ const App = props => {
         <Layout className="layout">
             <Router>
                 <NavBar />
-                <Content>
+                <Content style={{ paddingTop: '60px' }}>
                     <div className={styles.viewpoint}>
                         <Switch>
                             <Route exact path="/">
@@ -46,7 +46,7 @@ const App = props => {
                             <Route exact path="/about">
                                 <About />
                             </Route>
-                            <Route path="/posters/:id">
+                            <Route path="/posters/:movie_id">
                                 <PosterList />
                             </Route>
                         </Switch>
