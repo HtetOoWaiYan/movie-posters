@@ -27,37 +27,39 @@ const App = props => {
     }, []);
 
     return (
-        <Layout className="layout">
-            <Router>
-                <NavBar />
-                <Content style={{ paddingTop: '60px' }}>
-                    <div className={styles.viewpoint}>
-                        <Switch>
-                            <Route exact path="/">
-                                <Search
-                                    placeholder="Search movies"
-                                    enterButton
-                                    size="large"
-                                    onSearch={value => console.log(value)}
-                                    className={styles.search}
-                                />
-                                <Posters movies={movies} />
-                            </Route>
-                            <Route exact path="/about">
-                                <About />
-                            </Route>
-                            <Route path="/posters/:movie_id">
-                                <PosterList />
-                            </Route>
-                        </Switch>
-                    </div>
-                </Content>
+        <Router>
+            <Layout className="layout" className={styles.site}>
+                <div className={styles.top_section}>
+                    <NavBar />
+                    <Content style={{ padding: "60px 0" }}>
+                        <div className={styles.viewpoint}>
+                            <Switch>
+                                <Route exact path="/">
+                                    <Search
+                                        placeholder="Search movies"
+                                        enterButton
+                                        size="large"
+                                        onSearch={value => console.log(value)}
+                                        className={styles.search}
+                                    />
+                                    <Posters movies={movies} />
+                                </Route>
+                                <Route exact path="/about">
+                                    <About />
+                                </Route>
+                                <Route path="/posters/:movie_id">
+                                    <PosterList />
+                                </Route>
+                            </Switch>
+                        </div>
+                    </Content>
+                </div>
                 <Footer className={styles.footer}>
                     Movie data from <a href="https://themoviedb.com">TMDb</a><br/>
                     Icons made by <a href="https://www.flaticon.com/authors/nhor-phai">Nhor Phai</a> from <a href="https://www.flaticon.com/">flaticon</a>
                 </Footer>
-            </Router>
-        </Layout>
+            </Layout>
+        </Router>
     )
 }
 

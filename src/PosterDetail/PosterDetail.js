@@ -38,10 +38,12 @@ const PosterList = props => {
                     alt="poster"
                     className={styles.poster}
                 />
-                <Text code className={styles.size}>{poster.width} x {poster.height} pixels</Text>
+                <Text code>{poster.width} x {poster.height} pixels</Text>
             </div>
             <div className={styles.information}>
-                <Title className={styles.title}>{movie.title} ({movie.release_date && movie.release_date.substring(0, 4)})</Title>
+                <Title className={styles.title}>
+                    {movie.title} ({movie.release_date && movie.release_date.substring(0, 4)})
+                </Title>
                 <Button
                     icon={<EyeOutlined />}
                     size="middle"
