@@ -54,7 +54,7 @@ const App = props => {
                 </Content>
                 <Footer className={styles.footer}>
                     Movie data from <a href="https://themoviedb.com">TMDb</a><br/>
-                    Icons made by <a href="https://www.flaticon.com/authors/nhor-phai" title="Nhor Phai">Nhor Phai</a> from <a href="https://www.flaticon.com/" title="Flaticon"> flaticon</a>
+                    Icons made by <a href="https://www.flaticon.com/authors/nhor-phai">Nhor Phai</a> from <a href="https://www.flaticon.com/">flaticon</a>
                 </Footer>
             </Router>
         </Layout>

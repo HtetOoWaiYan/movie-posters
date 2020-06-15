@@ -2,6 +2,26 @@
     width: 80%;
     margin: auto;
 }
+@media (max-width: 1000px) {
+    .viewpoint {
+        width: var(--percentage, 85%);
+    }
+}
+@media (max-width: 900px) {
+    .viewpoint {
+        --percentage: 90%;
+    }
+}
+@media (max-width: 800px) {
+    .viewpoint {
+        --percentage: 95%;
+    }
+}
+@media (max-width: 500px) {
+    .viewpoint {
+        --percentage: 100%;
+    }
+}
 
 /* Brand */
 .logo {
