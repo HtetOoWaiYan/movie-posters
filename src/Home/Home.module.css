@@ -1,0 +1,8 @@
+/* Search box */
+.search {
+    display: block !important;
+    min-width: 200px;
+    max-width: 400px;
+    margin: auto;
+    margin-bottom: 60px;
+}

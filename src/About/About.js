@@ -1,11 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from './About.module.css';
-import { Typography } from 'antd';
-const { Title, Paragraph } = Typography;
+import { Breadcrumb, Typography } from 'antd';
+import { HomeOutlined } from '@ant-design/icons';
+const { Paragraph, Title } = Typography;
 
 const About = props => {
+
+    // Breadcrumb routes
+    const routes = [
+        {
+            path: '/',
+            breadcrumbName: 'Home',
+        },
+        {
+            path: '/about',
+            breadcrumbName: 'About',
+        },
+    ];
+
+    function itemRender(route, params, routes, paths) {
+        const last = routes.indexOf(route) === routes.length - 1;
+        return last ? (
+            <span>{route.breadcrumbName}</span>
+        ) : (
+            <Link to={paths.join('/')}><HomeOutlined /> {route.breadcrumbName}</Link>
+        );
+    }
+
     return (
         <Typography className={styles.article}>
+            <Breadcrumb itemRender={itemRender} routes={routes}></Breadcrumb>
+            
             <Title className={styles.title}>/About</Title>
             <Paragraph className={styles.text}>
                 Movie Posters is a website where you can search and download movie posters.

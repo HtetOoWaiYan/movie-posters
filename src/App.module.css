@@ -49,13 +49,9 @@
     border-bottom: 1.5px dotted var(--blue4);
 }
 
-/* Search box */
-.search {
-    display: block;
-    min-width: 200px;
-    max-width: 400px;
-    margin: auto;
-    margin-bottom: 60px;
+/* Content */
+.content {
+    padding: 60px 0;
 }
 
 /* Footer */

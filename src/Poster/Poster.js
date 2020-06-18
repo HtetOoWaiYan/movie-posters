@@ -6,7 +6,7 @@ const Poster = props => {
     return (
         <Link
             to={`/posters/${props.movie.id}`}
-            title={`${props.movie.title} (${props.movie.release_date.substring(0, 4)})`}
+            title={`${props.movie.title} (${props.movie.release_date && props.movie.release_date.substring(0, 4)})`}
         >
             <img
                 src={`https://image.tmdb.org/t/p/w1280/${props.movie.poster_path}`}

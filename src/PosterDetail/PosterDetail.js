@@ -1,9 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import styles from './PosterDetail.module.css';
-import { Typography, Button, Radio } from 'antd';
-import { EyeOutlined } from '@ant-design/icons';
-const { Title, Text } = Typography;
+import { Breadcrumb, Button, Popover, Typography } from 'antd';
+import {
+    EyeOutlined,
+    HomeOutlined,
+    PictureOutlined,
+    QuestionCircleOutlined,
+} from '@ant-design/icons';
+const { Text, Title } = Typography;
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
@@ -26,12 +31,50 @@ const PosterList = props => {
         fetch(`https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}`)
         .then(res => res.json())
         .then(json => {
-            setMovie(json);
+            setMovie(prejson => json);
         })
-    }, []);
+    }, [ movie_id ]);
+
+    // For download-information button
+    const content = (
+        <p>
+            Because of <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a>,<br/>
+            a download button cannot be included<br/>
+            as the data comes from TMDb API.
+        </p>
+    );
+
+    // Breadcrumb routes
+    const routes = [
+        {
+            path: '/',
+            breadcrumbName: 'Home',
+        },
+        {
+            path: `../../posters/${movie_id}`,
+            breadcrumbName: `${movie.title && movie.title} (${movie.release_date && movie.release_date.substring(0, 4)})`,
+        },
+        {
+            breadcrumbName: <PictureOutlined />,
+        },
+    ];
+
+    function itemRender(route, params, routes, paths) {
+        const home = routes.indexOf(route) === 0;
+        const last = routes.indexOf(route) === routes.length - 1;
+        if (home) {
+            return <Link to={paths.join('/')}><HomeOutlined /> {route.breadcrumbName}</Link>
+        }
+        if (last) {
+            return <span>{route.breadcrumbName}</span>;
+        } else {
+            return <Link to={paths.join('/')}>{route.breadcrumbName}</Link>
+        }
+    }
 
     return (
         <div className={styles.poster_detail}>
+            <Breadcrumb itemRender={itemRender} routes={routes}></Breadcrumb>
             <div className={styles.image_space}>
                 <img
                     src={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
@@ -44,14 +87,21 @@ const PosterList = props => {
                 <Title className={styles.title}>
                     {movie.title} ({movie.release_date && movie.release_date.substring(0, 4)})
                 </Title>
-                <Button
-                    icon={<EyeOutlined />}
-                    size="middle"
-                    href={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
-                    target="_blank"
-                >
-                    View in Browser
-                </Button>
+                <div>
+                    <Button
+                        icon={<EyeOutlined />}
+                        size="middle"
+                        href={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
+                        target="_blank"
+                    >
+                        View in Browser
+                    </Button>
+                    <Popover placement="top" content={content}>
+                        <Button type="link">
+                            <QuestionCircleOutlined />
+                        </Button>
+                    </Popover>
+                </div>
             </div>
         </div>
     );

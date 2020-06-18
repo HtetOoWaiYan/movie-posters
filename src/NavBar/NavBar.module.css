@@ -23,6 +23,11 @@
     }
 }
 
+/* Header */
+.header {
+    padding: 0 !important;
+}
+
 /* Brand */
 .logo {
     height: 55px;
@@ -33,4 +38,13 @@
     text-transform: uppercase;
     padding-bottom: 5px;
     border-bottom: 1.5px dotted var(--blue4);
+}
+
+/* Menu items */
+.item_left {
+    float: left;
+    background: none !important;
+}
+.item_right {
+    float: right;
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Poster from '../Poster/Poster'
+import Poster from '../Poster/Poster';
 import styles from './Posters.module.css';
 
 const Posters = props => {
