@@ -1,5 +1,5 @@
 .inputs {
-    margin-bottom: 60px;
+    margin: 20px 0 60px 0;
     display: grid;
     grid-gap: 20px;
     grid-template-columns: 1fr 2fr 1fr;

@@ -58,7 +58,11 @@ const PosterList = props => {
                     <Home movies={props.movies}/>
                 </Route>
                 <Route exact path="/posters/:movie_id">
-                    <Breadcrumb itemRender={itemRender} routes={routes}></Breadcrumb>
+                    <Breadcrumb
+                        itemRender={itemRender}
+                        routes={routes}
+                        className={styles.breadcrumb}
+                    ></Breadcrumb>
                     <div className={styles.posters}>
                         {posters.map(poster => {
                             return (

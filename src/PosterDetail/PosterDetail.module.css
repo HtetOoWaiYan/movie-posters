@@ -5,13 +5,17 @@
     justify-items: center;
 }
 
-.image_space {
-    height: 440px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+.breadcrumb {
+    margin: 0 0 40px 30px !important;
+}
 
+.image_space {
+    max-height: 440px;
+    display: grid;
+    grid-gap: 15px;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 .poster {
     height: 400px;
@@ -26,6 +30,10 @@
     .poster {
         height: 300px;
     }
+}
+
+.image_size {
+    align-self: start;
 }
 
 .information {

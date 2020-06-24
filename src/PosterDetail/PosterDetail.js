@@ -38,7 +38,7 @@ const PosterList = props => {
     // For download-information button
     const content = (
         <p>
-            Because of <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">Same-origin policy</a>,<br/>
+            Due to <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">same-origin policy</a>,<br/>
             a download button cannot be included<br/>
             as the data comes from TMDb API.
         </p>
@@ -73,34 +73,43 @@ const PosterList = props => {
     }
 
     return (
-        <div className={styles.poster_detail}>
-            <Breadcrumb itemRender={itemRender} routes={routes}></Breadcrumb>
-            <div className={styles.image_space}>
-                <img
-                    src={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
-                    alt="poster"
-                    className={styles.poster}
-                />
-                <Text code>{poster.width} x {poster.height} pixels</Text>
-            </div>
-            <div className={styles.information}>
-                <Title className={styles.title}>
-                    {movie.title} ({movie.release_date && movie.release_date.substring(0, 4)})
-                </Title>
-                <div>
-                    <Button
-                        icon={<EyeOutlined />}
-                        size="middle"
-                        href={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
-                        target="_blank"
-                    >
-                        View in Browser
-                    </Button>
-                    <Popover placement="top" content={content}>
-                        <Button type="link">
-                            <QuestionCircleOutlined />
+        <div>
+            <Breadcrumb
+                itemRender={itemRender}
+                routes={routes}
+                className={styles.breadcrumb}
+            ></Breadcrumb>
+            <div className={styles.poster_detail}>
+                <div className={styles.image_space}>
+                    <img
+                        src={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
+                        alt="poster"
+                        className={styles.poster}
+                    />
+                    <Text
+                        code
+                        className={styles.image_size}
+                    >{poster.width} x {poster.height} pixels</Text>
+                </div>
+                <div className={styles.information}>
+                    <Title className={styles.title}>
+                        {movie.title} ({movie.release_date && movie.release_date.substring(0, 4)})
+                    </Title>
+                    <div>
+                        <Button
+                            icon={<EyeOutlined />}
+                            size="middle"
+                            href={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
+                            target="_blank"
+                        >
+                            View in Browser
                         </Button>
-                    </Popover>
+                        <Popover placement="top" content={content}>
+                            <Button type="link">
+                                <QuestionCircleOutlined />
+                            </Button>
+                        </Popover>
+                    </div>
                 </div>
             </div>
         </div>
