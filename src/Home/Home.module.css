@@ -1,8 +1,35 @@
-/* Search box */
+.inputs {
+    margin-bottom: 60px;
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    justify-content: center;
+}
 .search {
     display: block !important;
     min-width: 200px;
     max-width: 400px;
     margin: auto;
-    margin-bottom: 60px;
+}
+.select {
+    width: 150px;
+    justify-self: end;
+}
+
+@media (max-width: 600px) {
+    .inputs {
+        margin-bottom: 40px;
+        grid-template-columns: 1fr;
+    }
+    .select {
+        justify-self: center;
+        width: 200px;
+    }
+}
+
+@media (max-width: 500px) {
+    .inputs {
+        padding: 0 20px;
+    }
 }

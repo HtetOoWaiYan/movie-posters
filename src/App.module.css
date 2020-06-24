@@ -53,6 +53,12 @@
 .content {
     padding: 60px 0;
 }
+@media (max-width: 600px) {
+    .content {
+        padding: 20px 0;
+    }
+}
+
 
 /* Footer */
 .footer {
