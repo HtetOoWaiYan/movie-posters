@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import {
     BrowserRouter as Router,
     Switch,
-    Route
+    Route,
+    Redirect,
 } from "react-router-dom";
 import About from './About/About';
 import Home from './Home/Home';
 import NavBar from './NavBar/NavBar';
+import PosterDetail from './PosterDetail/PosterDetail';
 import PosterList from './PosterList/PosterList';
+import SearchView from './SearchView/SearchView';
 import './App.css';
 import styles from './App.module.css';
-import { Breadcrumb, Layout } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { Layout } from 'antd';
 const { Content, Footer } = Layout;
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
@@ -35,14 +37,23 @@ const App = props => {
                         <Content className={styles.content}>
                             <div className={styles.viewpoint}>
                                 <Switch>
-                                    <Route exact path="/">
-                                        <Home movies={movies} />
-                                    </Route>
                                     <Route exact path="/about">
                                         <About />
                                     </Route>
-                                    <Route path="/posters/:movie_id">
-                                        <PosterList movies={movies}/>
+                                    <Route exact path="/">
+                                        <Home movies={movies} />
+                                    </Route>
+                                    <Route exact path="/search">
+                                        <Redirect to="/" />
+                                    </Route>
+                                    <Route exact path="/search/:query">
+                                        <SearchView />
+                                    </Route>
+                                    <Route exact path="/posters/:movie_id">
+                                        <PosterList movies={movies} />
+                                    </Route>
+                                    <Route exact path="/posters/:movie_id/:poster_id">
+                                        <PosterDetail movies={movies} />
                                     </Route>
                                 </Switch>
                             </div>

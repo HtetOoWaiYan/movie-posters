@@ -17,8 +17,7 @@ const NavBar = props => {
                 >
                     <Menu.Item key="0" className={styles.item_left}>
                         <Link to="/">
-                            <img
-                                src={require('../logo.png')} alt="logo" className={styles.logo} />
+                            <img src={require('../logo.png')} alt="logo" className={styles.logo} />
                             <span className={styles.brand}>Movie Posters</span>
                         </Link>
                     </Menu.Item>
