@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, useLocation, } from "react-router-dom";
 import Posters from '../Posters/Posters';
 import styles from './SearchView.module.css';
-import { Input, Select } from 'antd';
+import { Empty, Input, Select } from 'antd';
 const { Search } = Input;
 const { Option } = Select;
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 const SearchView = props => {
-    const history = useHistory();
-    const location = useLocation();
     const { query } = useParams();
+    const location = useLocation();
+    const history = useHistory();
 
     const [ value, setValue ] = useState(query);
     const [ urlSwitch, setURLSwitch ] = useState(false);
@@ -55,7 +55,7 @@ const SearchView = props => {
                     className={styles.search}
                 />
             </div>
-            <Posters movies={movies} />
+            {movies.length !== 0 ? <Posters movies={movies} /> : <Empty />}
         </div>
     )
 }

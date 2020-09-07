@@ -1,22 +1,39 @@
-import React from 'react';
-import { useHistory, useLocation } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, useLocation, useHistory  } from "react-router-dom";
 import Posters from '../Posters/Posters';
 import styles from './Home.module.css';
 import { Input, Select } from 'antd';
 const { Search } = Input;
 const { Option } = Select;
 
+const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
+
 const Home = props => {
-    const history = useHistory();
+    const { sort } = useParams();
     const location = useLocation();
+    const history = useHistory();
+
+    const [ value, setValue ] = useState(sort ? sort : "top_rated");
+
+    const [ movies, setMovies ] = useState([]);
+    useEffect(() => {
+        fetch(`https://api.themoviedb.org/3/movie/${value}?api_key=${API_KEY}`)
+        .then(res => res.json())
+        .then(json => {
+            setMovies(json.results);
+        })
+    }, [ value ]);
 
     const handleSearch = query => (
         history.push(`/search/${query}`, { prevURL: location.pathname })
     )
 
     function handleChange(value) {
-        console.log(`selected ${value}`);
+        setValue(value);
+        history.push(`/by/${value}`);
     }
+
+    // console.log(movies);
 
     return (
         <div>
@@ -30,22 +47,18 @@ const Home = props => {
                     className={styles.search}
                 />
                 <Select
-                    value="top-rated"
+                    value={value}
                     defaultValue="lucy"
                     onChange={handleChange}
                     className={styles.select}
                 >
-                    <Option value="top-rated">Top-rated</Option>
+                    <Option value="top_rated">Top-rated</Option>
                     <Option value="popular">Popular</Option>
-                    <Option value="latest">Latest</Option>
-                    <Option value="now-playing">Now Playing</Option>
+                    <Option value="now_playing">Now Playing</Option>
                     <Option value="upcoming">Upcoming</Option>
-                    <Option value="disabled" disabled>
-                        Disabled
-                    </Option>
                 </Select>
             </div>
-            <Posters movies={props.movies} />
+            <Posters movies={movies} />
         </div>
     )
 }

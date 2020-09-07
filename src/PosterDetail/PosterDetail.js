@@ -75,38 +75,34 @@ const PosterDetail = props => {
         poster = location.state.poster;
         movieSelected = location.state.movie;
 
+        let routePath = "";
+        let routeBreadcrumbName = "";
+
         // If the click comes from PosterList is in search mode
         if (location.state.prevSearchURL !== "") {
             isSearch = true;
 
-            routes = [
-                {
-                    path: `../../${location.state.prevSearchURL.substring(1)}`,
-                    breadcrumbName: 'Search',
-                },
-                {
-                    path: `../${movie_id}`,
-                    breadcrumbName: `${movieSelected.title} (${movieSelected.release_date && movieSelected.release_date.substring(0, 4)})`,
-                },
-                {
-                    breadcrumbName: <PictureOutlined />,
-                },
-            ];
+            routePath = `../../${location.state.prevSearchURL.substring(1)}`;
+            routeBreadcrumbName = 'Search';
+
         } else {
-            routes = [
-                {
-                    path: '/',
-                    breadcrumbName: 'Home',
-                },
-                {
-                    path: `../${movie_id}`,
-                    breadcrumbName: `${movieSelected.title} (${movieSelected.release_date && movieSelected.release_date.substring(0, 4)})`,
-                },
-                {
-                    breadcrumbName: <PictureOutlined />,
-                },
-            ];
+            routePath = '/';
+            routeBreadcrumbName = 'Home';
         }
+
+        routes = [
+            {
+                path: routePath,
+                breadcrumbName: routeBreadcrumbName,
+            },
+            {
+                path: `../${movie_id}`,
+                breadcrumbName: `${movieSelected.title} (${movieSelected.release_date && movieSelected.release_date.substring(0, 4)})`,
+            },
+            {
+                breadcrumbName: <PictureOutlined />,
+            },
+        ];
     }
 
     // For download-information button
@@ -134,7 +130,7 @@ const PosterDetail = props => {
                     pathname: `../${movie_id}`,
                     state: {
                         prevURL: location.pathname,
-                        prevSearchURL: location.state.prevSearchURL,
+                        prevSearchURL: location.state ? location.state.prevSearchURL : "",
                         movie: movieSelected
                     }
                 }}

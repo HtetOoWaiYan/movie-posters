@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import {
     BrowserRouter as Router,
     Switch,
@@ -16,18 +16,7 @@ import styles from './App.module.css';
 import { Layout } from 'antd';
 const { Content, Footer } = Layout;
 
-const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
-
 const App = props => {
-    const [ movies, setMovies ] = useState([]);
-    useEffect(() => {
-        fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}`)
-        .then(res => res.json())
-        .then(json => {
-            setMovies(json.results);
-        })
-    }, []);
-
     return (
         <Router>
             <Layout className="layout">
@@ -41,7 +30,10 @@ const App = props => {
                                         <About />
                                     </Route>
                                     <Route exact path="/">
-                                        <Home movies={movies} />
+                                        <Home />
+                                    </Route>
+                                    <Route exact path="/by/:sort">
+                                        <Home />
                                     </Route>
                                     <Route exact path="/search">
                                         <Redirect to="/" />
@@ -50,10 +42,10 @@ const App = props => {
                                         <SearchView />
                                     </Route>
                                     <Route exact path="/posters/:movie_id">
-                                        <PosterList movies={movies} />
+                                        <PosterList />
                                     </Route>
                                     <Route exact path="/posters/:movie_id/:poster_id">
-                                        <PosterDetail movies={movies} />
+                                        <PosterDetail />
                                     </Route>
                                 </Switch>
                             </div>

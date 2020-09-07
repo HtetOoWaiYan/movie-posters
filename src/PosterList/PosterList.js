@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation, } from "react-router-dom";
 import PosterForList from '../PosterForList/PosterForList';
 import styles from './PosterList.module.css';
-import { Breadcrumb } from 'antd';
+import { Breadcrumb, Empty } from 'antd';
 import { HomeOutlined, SearchOutlined } from '@ant-design/icons';
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
@@ -10,7 +10,6 @@ const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 const PosterList = props => {
     const { movie_id } = useParams();
     const location = useLocation();
-    let isSearch = false;
 
     const [ movie, setMovie ] = useState([]);
     useEffect(() => {
@@ -32,7 +31,6 @@ const PosterList = props => {
         })
     }, [ movie_id ]);
 
-    let movieSelected = movie;
 
     // Breadcrumb routes for manaul URL input
     let routes = [
@@ -45,7 +43,16 @@ const PosterList = props => {
         },
     ];
 
+    let movieSelected = movie;
+    let isSearch = false;
+    let prevSearchURL = "";
+
     if (location.state !== undefined && location.state.prevURL) {
+        movieSelected = location.state.movie;
+
+        let routePath = "";
+        let routeBreadcrumbName = "";
+
         /**
          * If the click comes from home page
          * Else if the click comes from SearchView page
@@ -53,57 +60,41 @@ const PosterList = props => {
          * Else if the click comes from PosterDetail page
          */
         if (location.state.prevURL === "/") {
-            let movieSelectedArray = props.movies.filter(movie => movie.id === parseInt(movie_id));
-            movieSelected = movieSelectedArray[0];
+            routePath = `../${location.state.prevURL.substring(1)}`;
+            routeBreadcrumbName = 'Home';
 
-            routes = [
-                {
-                    path: '/',
-                    breadcrumbName: 'Home',
-                },
-                {
-                    breadcrumbName: `${movieSelected && movieSelected.title} (${movieSelected && movieSelected.release_date.substring(0, 4)})`,
-                },
-            ];
+        } else if (location.state.prevURL.substring(1, 3) === "by") {
+            routePath = `../${location.state.prevURL.substring(1)}`;
+            routeBreadcrumbName = 'Home';
+
         } else if (location.state.prevURL.substring(1, 7) === "search") {
             isSearch = true;
-            movieSelected = location.state.movie;
+            prevSearchURL = location.state.prevURL;
 
-            routes = [
-                {
-                    path: `../${location.state.prevURL.substring(1)}`,
-                    breadcrumbName: 'Search',
-                },
-                {
-                    breadcrumbName: `${movieSelected.title} (${movieSelected.release_date.substring(0, 4)})`,
-                },
-            ];
-        } else if (location.state.prevSearchURL.substring(1, 7) === "search") {
+            routePath = `../${location.state.prevURL.substring(1)}`;
+            routeBreadcrumbName = 'Search';
+
+        } else if (location.state.prevSearchURL && location.state.prevSearchURL.substring(1, 7) === "search") {
             isSearch = true;
-            movieSelected = location.state.movie;
+            prevSearchURL = location.state.prevSearchURL;
 
-            routes = [
-                {
-                    path: `../${location.state.prevSearchURL.substring(1)}`,
-                    breadcrumbName: 'Search',
-                },
-                {
-                    breadcrumbName: `${movieSelected.title} (${movieSelected.release_date.substring(0, 4)})`,
-                },
-            ];
+            routePath = `../${location.state.prevSearchURL.substring(1)}`;
+            routeBreadcrumbName = 'Search';
+
         } else {
-            movieSelected = location.state.movie;
-
-            routes = [
-                {
-                    path: '/',
-                    breadcrumbName: 'Home',
-                },
-                {
-                    breadcrumbName: `${movieSelected.title} (${movieSelected.release_date.substring(0, 4)})`,
-                },
-            ];
+            routePath = '/';
+            routeBreadcrumbName = 'Home';
         }
+
+        routes = [
+            {
+                path: routePath,
+                breadcrumbName: routeBreadcrumbName,
+            },
+            {
+                breadcrumbName: `${movieSelected.title} (${movieSelected.release_date.substring(0, 4)})`,
+            },
+        ];
     }
 
     // console.log(poster_id);
@@ -129,20 +120,24 @@ const PosterList = props => {
                 className={styles.breadcrumb}
             >
             </Breadcrumb>
-            <div className={styles.posters}>
-                {posters.map(poster => {
-                    return (
-                        <PosterForList
-                            key={generated_poster_id}
-                            poster_id={generated_poster_id++}
-                            movie_id={movie_id}
-                            movie={movieSelected}
-                            poster={poster}
-                            prevSearchURL={isSearch ? location.state.prevURL : ""}
-                        />
-                    )
-                })}
-            </div>
+            {
+                posters.length !== 0
+                ? <div className={styles.posters}>
+                    {posters.map(poster => {
+                        return (
+                            <PosterForList
+                                key={generated_poster_id}
+                                poster_id={generated_poster_id++}
+                                movie_id={movie_id}
+                                movie={movieSelected}
+                                poster={poster}
+                                prevSearchURL={prevSearchURL}
+                            />
+                        )
+                    })}
+                </div>
+                : <Empty />
+            }
         </div>
     );
 }
