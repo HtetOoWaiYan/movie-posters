@@ -1,11 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import styles from './Poster.module.css';
+import { Skeleton } from 'antd';
 
 const Poster = props => {
     const location = useLocation();
-
-    let noPoster = false;
 
     return (
         <div>

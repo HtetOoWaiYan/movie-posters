@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation, } from "react-router-dom";
 import PosterForList from '../PosterForList/PosterForList';
 import styles from './PosterList.module.css';
-import { Breadcrumb, Empty } from 'antd';
+import { Breadcrumb, Empty, Spin } from 'antd';
 import { HomeOutlined, SearchOutlined } from '@ant-design/icons';
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
@@ -22,12 +22,14 @@ const PosterList = props => {
         }
     }, [ location.state, movie_id ]);
 
+    const [ loading, setLoading ] = useState(true);
     const [ posters, setPosters ] = useState([]);
     useEffect(() => {
         fetch(`https://api.themoviedb.org/3/movie/${movie_id}/images?api_key=${API_KEY}&language=en`)
         .then(res => res.json())
         .then(json => {
             setPosters(json.posters);
+            setLoading(false);
         })
     }, [ movie_id ]);
 
@@ -121,8 +123,9 @@ const PosterList = props => {
             >
             </Breadcrumb>
             {
-                posters.length !== 0
-                ? <div className={styles.posters}>
+                loading
+                ? <Spin size="large" tip="Fetching data..." className={styles.spin} />
+                : <div className={styles.posters}>
                     {posters.map(poster => {
                         return (
                             <PosterForList
@@ -136,8 +139,8 @@ const PosterList = props => {
                         )
                     })}
                 </div>
-                : <Empty />
             }
+            { posters.length === 0 && !loading ? <Empty /> : "" }
         </div>
     );
 }

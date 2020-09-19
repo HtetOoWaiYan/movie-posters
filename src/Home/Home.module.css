@@ -16,6 +16,10 @@
     width: 150px;
     justify-self: end;
 }
+.spin {
+    display: block !important;
+    margin: auto;
+}
 
 @media (max-width: 600px) {
     .inputs {
