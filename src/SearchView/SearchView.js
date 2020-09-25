@@ -2,9 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useHistory, useLocation, } from "react-router-dom";
 import Posters from '../Posters/Posters';
 import styles from './SearchView.module.css';
-import { Empty, Input, Select, Spin } from 'antd';
+import { Empty, Input, Spin } from 'antd';
 const { Search } = Input;
-const { Option } = Select;
 
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 

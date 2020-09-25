@@ -35,8 +35,6 @@ const Home = props => {
         history.push(`/by/${value}`);
     }
 
-    // console.log(movies);
-
     return (
         <div>
             <div className={styles.inputs}>

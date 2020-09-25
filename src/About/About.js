@@ -6,7 +6,6 @@ import { HomeOutlined } from '@ant-design/icons';
 const { Paragraph, Title } = Typography;
 
 const About = props => {
-
     // Breadcrumb routes
     const routes = [
         {
@@ -31,7 +30,7 @@ const About = props => {
     return (
         <Typography className={styles.article}>
             <Breadcrumb itemRender={itemRender} routes={routes}></Breadcrumb>
-            
+
             <Title className={styles.title}>/About</Title>
             <Paragraph className={styles.text}>
                 Movie Posters is a website where you can search and download movie posters.
