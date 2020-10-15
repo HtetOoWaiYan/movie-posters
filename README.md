@@ -1,6 +1,6 @@
 ## About
 
-Movie Posters is a website where you can search and download movie posters.
+Movie Posters is a website where you can search, view and download movie posters.
 
 The purpose of making this website is for me to practice [React](https://reactjs.org) and to serve it as my [CS50x](https://www.edx.org/course/cs50s-introduction-to-computer-science) final project.
 
@@ -9,8 +9,8 @@ Demo video - [link](https://youtu.be/UMwJDp4oZ9Y)
 ## Features
 
 * Being a SPA (single-page application)
-* 100% responsive (both mobile, tablet & desktop)
-* Effective search-box
+* Responsive (both mobile, tablet & desktop)
+* Minimal search-box
 * Customized breadcrumbs
 * Four "sort by type" selections
 

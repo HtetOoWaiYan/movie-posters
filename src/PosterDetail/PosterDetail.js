@@ -78,7 +78,7 @@ const PosterDetail = props => {
         let routePath = "";
         let routeBreadcrumbName = "";
 
-        // If the click comes from PosterList is in search mode
+        // If the click comes from PosterList in search mode
         if (location.state.prevSearchURL !== "") {
             isSearch = true;
 

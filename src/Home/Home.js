@@ -13,7 +13,7 @@ const Home = props => {
     const location = useLocation();
     const history = useHistory();
 
-    const [ value, setValue ] = useState(sort ? sort : "top_rated");
+    const [ value, setValue ] = useState(sort ? sort : "popular");
 
     const [ loading, setLoading ] = useState(true);
     const [ movies, setMovies ] = useState([]);
@@ -52,8 +52,8 @@ const Home = props => {
                     onChange={handleChange}
                     className={styles.select}
                 >
-                    <Option value="top_rated">Top-rated</Option>
                     <Option value="popular">Popular</Option>
+                    <Option value="top_rated">Top-rated</Option>
                     <Option value="now_playing">Now Playing</Option>
                     <Option value="upcoming">Upcoming</Option>
                 </Select>
