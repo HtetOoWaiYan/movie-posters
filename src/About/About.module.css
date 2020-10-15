@@ -1,9 +1,15 @@
 .article {
     padding: 30px;
+    padding-top: 0;
+}
+
+.breadcrumb {
+    margin-bottom: 30px !important;
 }
 
 .title {
     font-size: 20px !important;
+    margin-top: 25px !important;
 }
 
 .text {
