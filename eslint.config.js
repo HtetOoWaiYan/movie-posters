@@ -4,7 +4,7 @@ import pluginReactConfig from "eslint-plugin-react/configs/recommended.js";
 
 export default [
   {
-    ignores: ["build/**", "dist/**"],
+    ignores: ["dist/**"],
     languageOptions: {
       ecmaVersion: 2020,
       sourceType: "module",
