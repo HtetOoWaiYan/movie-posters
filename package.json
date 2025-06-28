@@ -10,12 +10,12 @@
     "antd": "^5.26.2",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-helmet": "^6.1.0",
     "react-router-dom": "^7.6.3"
   },
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "test": "vitest",
     "preview": "vite preview",
     "lint": "eslint src --ext js,jsx",
     "format": "prettier --write ."

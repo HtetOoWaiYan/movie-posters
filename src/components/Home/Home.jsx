@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import styles from "./Home.module.css";
 import Posters from "../Posters/Posters.jsx";
 import { useMovieList } from "../../context/MovieListContext.jsx";
+import Meta from "../Meta/Meta.jsx";
 
 const { Search } = Input;
 const { Option } = Select;
@@ -29,6 +30,11 @@ const Home = () => {
 
   return (
     <div>
+      <Meta
+        title="Movie Posters | Search and download movie posters"
+        description="A website to search, view and download movie posters."
+        image="/logo512.png"
+      />
       <div className={styles.inputs}>
         <div></div>
         <Search

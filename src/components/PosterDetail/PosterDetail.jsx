@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import { useMovie } from "../../context/MovieContext.jsx";
 import { usePosters } from "../../context/PosterContext.jsx";
+import Meta from "../Meta/Meta.jsx";
 
 const { Text, Title } = Typography;
 
@@ -93,6 +94,21 @@ const PosterDetail = () => {
 
   return (
     <div>
+      {movieSelected && poster ? (
+        <Meta
+          title={`${movieSelected.title} (${movieSelected.release_date?.substring(
+            0,
+            4
+          )}) Poster | Movie Posters`}
+          description={`Poster of ${movieSelected.title} (${movieSelected.release_date?.substring(
+            0,
+            4
+          )})`}
+          image={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
+        />
+      ) : (
+        ""
+      )}
       <Breadcrumb className={styles.breadcrumb} items={breadcrumbItems} />
       {poster && movieSelected && movieSelected.title ? (
         <div className={styles.poster_detail}>

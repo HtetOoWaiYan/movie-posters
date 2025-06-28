@@ -5,6 +5,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import styles from "./SearchView.module.css";
 import Posters from "../Posters/Posters.jsx";
 import { useMovieList } from "../../context/MovieListContext.jsx";
+import Meta from "../Meta/Meta.jsx";
 
 const { Search } = Input;
 
@@ -25,6 +26,11 @@ const SearchView = () => {
 
   return (
     <div>
+      <Meta
+        title={`Search results for "${query}" | Movie Posters`}
+        description={`Search results for "${query}" on Movie Posters.`}
+        image="/logo512.png"
+      />
       <div className={styles.inputs}>
         <div></div>
         <Search

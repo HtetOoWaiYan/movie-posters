@@ -1,12 +1,18 @@
 import React from "react";
 import { Typography } from "antd";
 import styles from "./About.module.css";
+import Meta from "../Meta/Meta.jsx";
 
 const { Paragraph, Title } = Typography;
 
 const About = () => {
   return (
     <Typography className={styles.article}>
+      <Meta
+        title="About | Movie Posters"
+        description="About the Movie Posters website."
+        image="/logo512.png"
+      />
       <Title className={styles.title}>/About</Title>
       <Paragraph className={styles.text}>
         Movie Posters is a responsive and user-friendly website for discovering
