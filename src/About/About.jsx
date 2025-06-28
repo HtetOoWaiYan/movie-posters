@@ -8,8 +8,8 @@ const About = () => {
     <Typography className={styles.article}>
       <Title className={styles.title}>/About</Title>
       <Paragraph className={styles.text}>
-        Movie Posters is a website where you can search, view and download movie
-        posters.
+        Movie Posters is a responsive and user-friendly website for discovering
+        and downloading movie posters.
       </Paragraph>
 
       <Title className={styles.title}>/Purpose</Title>
@@ -26,6 +26,9 @@ const About = () => {
       <ul className={styles.text}>
         <li>
           <a href="https://reactjs.org/">React</a>
+        </li>
+        <li>
+          <a href="https://vitejs.dev/">Vite</a>
         </li>
         <li>
           <a href="https://ant.design/">Ant Design</a>
@@ -52,6 +55,8 @@ const About = () => {
             CSS Modules
           </a>
         </li>
+        <li>State management with React Context.</li>
+        <li>Modern frontend tooling with Vite.</li>
       </ul>
     </Typography>
   );
