@@ -2,24 +2,23 @@
   "name": "movie-poster",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.5.0",
-    "@testing-library/user-event": "^7.2.1",
-    "antd": "^4.2.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.1"
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
+    "antd": "^5.26.2",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3"
   },
   "scripts": {
-    "start": "BROWSER='firefox developer edition' react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "start": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "preview": "vite preview",
+    "lint": "eslint src --ext js,jsx",
+    "format": "prettier --write ."
   },
   "browserslist": {
     "production": [
@@ -32,5 +31,13 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.30.0",
+    "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "^9.30.0",
+    "eslint-plugin-react": "^7.37.5",
+    "prettier": "^3.6.2",
+    "vite": "^7.0.0"
   }
 }

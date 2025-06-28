@@ -1,7 +1,7 @@
 .posters {
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, 160px);
-    align-items: center;
-    justify-content: center;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, 160px);
+  align-items: center;
+  justify-content: center;
 }

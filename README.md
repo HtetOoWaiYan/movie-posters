@@ -8,20 +8,20 @@ Demo video - [link](https://youtu.be/UMwJDp4oZ9Y)
 
 ## Features
 
-* Being a SPA (single-page application)
-* Responsive (both mobile, tablet & desktop)
-* Minimal search-box
-* Customized breadcrumbs
-* Four "sort by type" selections
+- Being a SPA (single-page application)
+- Responsive (both mobile, tablet & desktop)
+- Minimal search-box
+- Customized breadcrumbs
+- Four "sort by type" selections
 
 ## Tech used
 
-* [React](https://reactjs.org)
-* [Ant Design](https://ant.design)
-* [TMDb API](https://www.themoviedb.org/documentation/api)
+- [React](https://reactjs.org)
+- [Ant Design](https://ant.design)
+- [TMDb API](https://www.themoviedb.org/documentation/api)
 
 ## Things I learned making this project
 
-* [React Router](https://reactrouter.com/web/guides/quick-start)
-* [CSS Grid](https://cssgrid.io)
-* [CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
+- [React Router](https://reactrouter.com/web/guides/quick-start)
+- [CSS Grid](https://cssgrid.io)
+- [CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)

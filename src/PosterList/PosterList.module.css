@@ -1,17 +1,17 @@
 .breadcrumb {
-    margin: 0 0 40px 30px !important;
+  margin: 0 0 40px 30px !important;
 }
 
 .posters {
-    margin: 0;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-columns: repeat(auto-fit, 160px);
-    align-items: center;
-    justify-content: center;
+  margin: 0;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(auto-fit, 160px);
+  align-items: center;
+  justify-content: center;
 }
 
 .spin {
-    display: block !important;
-    margin: auto;
+  display: block !important;
+  margin: auto;
 }

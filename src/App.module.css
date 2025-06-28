@@ -1,66 +1,65 @@
-@import './colors.css';
+@import "./colors.css";
 
 .viewpoint {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 @media (max-width: 1000px) {
-    .viewpoint {
-        width: var(--percentage, 85%);
-    }
+  .viewpoint {
+    width: var(--percentage, 85%);
+  }
 }
 @media (max-width: 900px) {
-    .viewpoint {
-        --percentage: 90%;
-    }
+  .viewpoint {
+    --percentage: 90%;
+  }
 }
 @media (max-width: 800px) {
-    .viewpoint {
-        --percentage: 95%;
-    }
+  .viewpoint {
+    --percentage: 95%;
+  }
 }
 @media (max-width: 500px) {
-    .viewpoint {
-        --percentage: 100%;
-    }
+  .viewpoint {
+    --percentage: 100%;
+  }
 }
 
 /* Sticky footer
  * https://stackoverflow.com/a/46555629/7580064
  */
 .site {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 .top_section {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 /* Brand */
 .logo {
-    height: 55px;
+  height: 55px;
 }
 .brand {
-    margin-left: 10px;
-    color: var(--gray2);
-    text-transform: uppercase;
-    padding-bottom: 5px;
-    border-bottom: 1.5px dotted var(--blue4);
+  margin-left: 10px;
+  color: var(--gray2);
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 1.5px dotted var(--blue4);
 }
 
 /* Content */
 .content {
-    padding: 40px 0;
+  padding: 40px 0;
 }
 @media (max-width: 600px) {
-    .content {
-        padding: 20px 0;
-    }
+  .content {
+    padding: 20px 0;
+  }
 }
-
 
 /* Footer */
 .footer {
-    text-align: center;
+  text-align: center;
 }

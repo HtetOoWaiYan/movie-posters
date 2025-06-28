@@ -1,10 +1,10 @@
 /* https://ant.design/docs/spec/colors */
 
 :root {
-    --blue4: #69c0ff;
-    --blue6: #1890ff;
+  --blue4: #69c0ff;
+  --blue6: #1890ff;
 
-    --gray2: #fafafa;
-    --gray6: #bfbfbf;
-    --gray8: #595959;
+  --gray2: #fafafa;
+  --gray6: #bfbfbf;
+  --gray8: #595959;
 }

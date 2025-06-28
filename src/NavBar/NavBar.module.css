@@ -1,50 +1,50 @@
 .viewpoint {
-    width: 80%;
-    margin: auto;
+  width: 80%;
+  margin: auto;
 }
 @media (max-width: 1000px) {
-    .viewpoint {
-        width: var(--percentage, 85%);
-    }
+  .viewpoint {
+    width: var(--percentage, 85%);
+  }
 }
 @media (max-width: 900px) {
-    .viewpoint {
-        --percentage: 90%;
-    }
+  .viewpoint {
+    --percentage: 90%;
+  }
 }
 @media (max-width: 800px) {
-    .viewpoint {
-        --percentage: 95%;
-    }
+  .viewpoint {
+    --percentage: 95%;
+  }
 }
 @media (max-width: 500px) {
-    .viewpoint {
-        --percentage: 100%;
-    }
+  .viewpoint {
+    --percentage: 100%;
+  }
 }
 
 /* Header */
 .header {
-    padding: 0 !important;
+  padding: 0 !important;
 }
 
 /* Brand */
 .logo {
-    height: 55px;
+  height: 55px;
 }
 .brand {
-    margin-left: 10px;
-    color: var(--gray2);
-    text-transform: uppercase;
-    padding-bottom: 5px;
-    border-bottom: 1.5px dotted var(--blue4);
+  margin-left: 10px;
+  color: var(--gray2);
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 1.5px dotted var(--blue4);
 }
 
 /* Menu items */
 .item_left {
-    float: left;
-    background: none !important;
+  float: left;
+  background: none !important;
 }
 .item_right {
-    float: right;
+  float: right;
 }
