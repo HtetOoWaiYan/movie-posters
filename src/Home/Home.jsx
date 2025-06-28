@@ -1,8 +1,9 @@
+import { Empty, Input, Select, Spin } from "antd";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import Posters from "../Posters/Posters.jsx";
+
 import styles from "./Home.module.css";
-import { Empty, Input, Select, Spin } from "antd";
+import Posters from "../Posters/Posters.jsx";
 import { useMovieList } from "../context/MovieListContext.jsx";
 
 const { Search } = Input;
