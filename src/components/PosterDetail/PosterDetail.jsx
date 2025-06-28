@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Link, useParams, useLocation } from "react-router-dom";
 import styles from "./PosterDetail.module.css";
+import { Link, useParams, useLocation } from "react-router-dom";
 import { Breadcrumb, Button, Popover, Typography } from "antd";
 import {
   EyeOutlined,
@@ -9,8 +9,8 @@ import {
   QuestionCircleOutlined,
   SearchOutlined,
 } from "@ant-design/icons";
-import { useMovie } from "../context/MovieContext.jsx";
-import { usePosters } from "../context/PosterContext.jsx";
+import { useMovie } from "../../context/MovieContext.jsx";
+import { usePosters } from "../../context/PosterContext.jsx";
 
 const { Text, Title } = Typography;
 

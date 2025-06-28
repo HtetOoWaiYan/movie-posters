@@ -1,8 +1,9 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
-import logo from "../logo.png";
-import styles from "./NavBar.module.css";
+import logo from "../../logo.png";
 import { Layout, Menu } from "antd";
+import styles from "./NavBar.module.css";
+import { Link, useLocation } from "react-router-dom";
+
 const { Header } = Layout;
 
 const NavBar = () => {

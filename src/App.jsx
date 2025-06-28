@@ -4,12 +4,12 @@ import { Layout } from "antd";
 import styles from "./App.module.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./Home/Home.jsx";
-import About from "./About/About.jsx";
-import NavBar from "./NavBar/NavBar.jsx";
-import PosterList from "./PosterList/PosterList.jsx";
-import SearchView from "./SearchView/SearchView.jsx";
-import PosterDetail from "./PosterDetail/PosterDetail.jsx";
+import Home from "./components/Home/Home.jsx";
+import About from "./components/About/About.jsx";
+import NavBar from "./components/NavBar/NavBar.jsx";
+import PosterList from "./components/PosterList/PosterList.jsx";
+import SearchView from "./components/SearchView/SearchView.jsx";
+import PosterDetail from "./components/PosterDetail/PosterDetail.jsx";
 import { MovieProvider } from "./context/MovieContext.jsx";
 import { PosterProvider } from "./context/PosterContext.jsx";
 import { MovieListProvider } from "./context/MovieListContext.jsx";
