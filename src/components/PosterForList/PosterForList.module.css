@@ -1,1 +1,47 @@
 @import "../../shared.module.css";
+
+.posterForListContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.poster {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--skeleton-background-color);
+  animation: pulse 1.5s infinite ease-in-out;
+  z-index: 1;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.loaded {
+  visibility: visible;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: var(--skeleton-background-color-start);
+  }
+  50% {
+    background-color: var(--skeleton-background-color-end);
+  }
+  100% {
+    background-color: var(--skeleton-background-color-start);
+  }
+}

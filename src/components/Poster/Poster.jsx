@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./Poster.module.css";
 
 const Poster = React.memo((props) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
-    <div>
+    <div className={styles.posterContainer}>
       <Link
         to={{
           pathname: `/posters/${props.movie.id}`,
@@ -15,10 +17,13 @@ const Poster = React.memo((props) => {
         }}
         title={`${props.movie.title} (${props.movie.release_date && props.movie.release_date.substring(0, 4)})`}
       >
+        {!imageLoaded && <div className={styles.skeleton}></div>}
         <img
           src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`}
           alt={`${props.movie.title} (${props.movie.release_date && props.movie.release_date.substring(0, 4)})`}
-          className={styles.poster}
+          className={`${styles.poster} ${imageLoaded ? styles.loaded : styles.hidden}`}
+          loading="lazy"
+          onLoad={() => setImageLoaded(true)}
         />
       </Link>
     </div>

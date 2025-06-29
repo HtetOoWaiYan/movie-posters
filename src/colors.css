@@ -7,4 +7,8 @@
   --gray2: #fafafa;
   --gray6: #bfbfbf;
   --gray8: #595959;
+
+  --skeleton-background-color: #e0e0e0;
+  --skeleton-background-color-start: #e0e0e0;
+  --skeleton-background-color-end: #f0f0f0;
 }
