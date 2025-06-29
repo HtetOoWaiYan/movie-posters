@@ -115,24 +115,11 @@
   }
   .sizeButtonsGrid {
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    max-width: 200px; /* Adjusted max-width for 2 columns */
-  }
-  .sizeButton {
-    width: 90px;
-    height: 90px;
   }
 }
 
 @media (max-width: 500px) {
   .poster_detail {
     --percentage: 100%;
-  }
-  .sizeButtonsGrid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    max-width: 180px; /* Adjusted max-width for 2 columns */
-  }
-  .sizeButton {
-    width: 80px;
-    height: 80px;
   }
 }
