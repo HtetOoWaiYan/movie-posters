@@ -3,7 +3,6 @@
 }
 
 .poster_detail {
-  height: 100%;
   width: var(--percentage, 80%); /* Use variable for width */
   margin: auto;
   display: grid;
@@ -13,6 +12,13 @@
   align-items: center;
 }
 
+.image_space {
+  height: 450px;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+}
 .poster {
   height: 400px;
   border-radius: 5px;
@@ -48,6 +54,11 @@
   white-space: pre-wrap;
 }
 
+.dimText {
+  font-size: 0.85em; /* Slightly larger size */
+  opacity: 0.7; /* Dimmer */
+}
+
 @media (max-width: 1000px) {
   .poster_detail {
     --percentage: 85%;
@@ -67,6 +78,9 @@
 }
 
 @media (max-width: 700px) {
+  .image_space {
+    height: 400px;
+  }
   .poster {
     height: 350px;
   }
@@ -86,8 +100,39 @@
   }
 }
 
+@media (max-width: 684px) {
+  .title {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .image_space {
+    height: 350px;
+  }
+  .poster {
+    height: 300px;
+  }
+  .sizeButtonsGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    max-width: 200px; /* Adjusted max-width for 2 columns */
+  }
+  .sizeButton {
+    width: 90px;
+    height: 90px;
+  }
+}
+
 @media (max-width: 500px) {
   .poster_detail {
     --percentage: 100%;
+  }
+  .sizeButtonsGrid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    max-width: 180px; /* Adjusted max-width for 2 columns */
+  }
+  .sizeButton {
+    width: 80px;
+    height: 80px;
   }
 }

@@ -56,12 +56,12 @@ const PosterDetail = React.memo(() => {
               0,
               4,
             )})`}
-            image={`https://image.tmdb.org/t/p/w500/${poster?.file_path}`}
+            image={`https://image.tmdb.org/t/p/w500/${poster?.file_path?.startsWith('/') ? poster.file_path.substring(1) : poster.file_path}`}
           />
           <Breadcrumb className={styles.breadcrumb} items={breadcrumbItems} />
           <div className={styles.poster_detail}>
               <img
-                src={`https://image.tmdb.org/t/p/w500/${poster?.file_path}`}
+                src={`https://image.tmdb.org/t/p/w500/${poster?.file_path?.startsWith('/') ? poster.file_path.substring(1) : poster.file_path}`}
                 alt="poster"
                 className={styles.poster}
               />
@@ -72,28 +72,15 @@ const PosterDetail = React.memo(() => {
               </Title>
               <div>
                 <div className={styles.sizeButtonsGrid}>
-                  {[{
-                    width: 92,
-                    label: "92 x 138\npixels"
-                  }, {
-                    width: 154,
-                    label: "154 x 231\npixels"
-                  }, {
-                    width: 185,
-                    label: "185 x 277\npixels"
-                  }, {
-                    width: 342,
-                    label: "342 x 513\npixels"
-                  }, {
-                    width: 500,
-                    label: "500 x 750\npixels"
-                  }, {
-                    width: 780,
-                    label: "780 x 1170\npixels"
-                  }, {
-                    width: 'original',
-                    label: "Original\nresolution"
-                  }].map(size => <Button key={size.width} className={styles.sizeButton} href={`https://image.tmdb.org/t/p/${size.width === 'original' ? 'original' : `w${size.width}`}/${poster.file_path}`} target="_blank" rel="noopener noreferrer">
+                  {[
+                    { width: 92, label: (<>92 x 138<br /><span className={styles.dimText}>pixels</span></>) },
+                    { width: 154, label: (<>154 x 231<br /><span className={styles.dimText}>pixels</span></>) },
+                    { width: 185, label: (<>185 x 277<br /><span className={styles.dimText}>pixels</span></>) },
+                    { width: 342, label: (<>342 x 513<br /><span className={styles.dimText}>pixels</span></>) },
+                    { width: 500, label: (<>500 x 750<br /><span className={styles.dimText}>pixels</span></>) },
+                    { width: 780, label: (<>780 x 1170<br /><span className={styles.dimText}>pixels</span></>) },
+                    { width: 'original', label: (<>Original<br /><span className={styles.dimText}>resolution</span></>) },
+                  ].map(size => <Button key={size.width} className={styles.sizeButton} href={`https://image.tmdb.org/t/p/${size.width === 'original' ? 'original' : `w${size.width}`}/${poster.file_path?.startsWith('/') ? poster.file_path.substring(1) : poster.file_path}`} target="_blank" rel="noopener noreferrer">
                       {size.label}
                     </Button>)}
                 </div>
