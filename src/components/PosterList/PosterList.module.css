@@ -1,17 +1,10 @@
-.breadcrumb {
-  margin: 0 0 20px 30px !important;
-}
+@import "../../shared.module.css";
 
-.posters {
-  margin: 0;
-  display: grid;
-  grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, 160px);
-  align-items: center;
-  justify-content: center;
+.breadcrumb {
+  margin: 0 0 20px 30px;
 }
 
 .spin {
-  display: block !important;
+  display: block;
   margin: auto;
 }

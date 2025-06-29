@@ -1,4 +1,3 @@
-import "./App.css";
 import React from "react";
 import { Layout } from "antd";
 import styles from "./App.module.css";
