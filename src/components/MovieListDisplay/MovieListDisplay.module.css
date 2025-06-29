@@ -1,8 +1,1 @@
-.container {
-  /* Add styles for the container if needed */
-}
-
-.spin {
-  display: block;
-  margin: 50px auto;
-}
+@import "../../shared.module.css";
