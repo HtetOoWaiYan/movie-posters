@@ -39,11 +39,12 @@
   border-bottom: 1.5px dotted var(--blue4);
 }
 
+.menu {
+  display: flex;
+  width: 100%;
+}
+
 /* Menu items */
 .item_left {
-  float: left;
   background: none !important;
-}
-.item_right {
-  float: right;
 }

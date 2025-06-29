@@ -13,6 +13,7 @@ const NavBar = () => {
         <Menu
           theme="dark"
           mode="horizontal"
+          className={styles.menu}
           selectedKeys={useLocation().pathname === "/about" ? ["2"] : ["1"]}
           items={[
             {
@@ -26,14 +27,13 @@ const NavBar = () => {
               ),
             },
             {
-              key: "2",
-              className: styles.item_right,
-              label: <Link to="/about">About</Link>,
+              key: "1",
+              label: <Link to="/">Posters</Link>,
+              style: { marginLeft: "auto" },
             },
             {
-              key: "1",
-              className: styles.item_right,
-              label: <Link to="/">Posters</Link>,
+              key: "2",
+              label: <Link to="/about">About</Link>,
             },
           ]}
         />
