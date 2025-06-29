@@ -1,5 +1,6 @@
 import React from "react";
 import { Typography } from "antd";
+import { GithubOutlined } from "@ant-design/icons";
 import styles from "./About.module.css";
 import Meta from "../Meta/Meta.jsx";
 
@@ -15,56 +16,33 @@ const About = React.memo(() => {
       />
       <Title className={styles.title}>/About</Title>
       <Paragraph className={styles.text}>
-        Movie Posters is a responsive and user-friendly website for discovering
-        and downloading movie posters.
+        Welcome to Movie Posters, your go-to destination for discovering and
+        downloading high-quality movie posters with unparalleled ease.
       </Paragraph>
 
-      <Title className={styles.title}>/Purpose</Title>
+      <Title className={styles.title}>/Our Purpose</Title>
       <Paragraph className={styles.text}>
-        The purpose of making this website is for me to practice{" "}
-        <a href="https://reactjs.org/">React</a> and to serve it as my{" "}
-        <a href="https://www.edx.org/course/cs50s-introduction-to-computer-science">
-          CS50x
-        </a>{" "}
-        final project.
+        This project was born out of a personal frustration: the struggle to find a
+        dedicated, user-friendly platform for movie posters. As someone who often
+        needs specific poster images for graphic design or content creation, I found
+        existing websites cumbersome, cluttered, and not focused on the core need
+        of simply viewing and downloading posters.
+      </Paragraph>
+      <Paragraph className={styles.text}>
+        Movie Posters aims to solve this by offering a clean, minimal, and intuitive
+        experience. No more navigating through endless clicks or dealing with distracting
+        elements. Here, you get straight to what you need: a vast collection of movie
+        posters, readily available for viewing and download, designed for efficiency
+        and a seamless user experience.
       </Paragraph>
 
-      <Title className={styles.title}>/Tech used</Title>
-      <ul className={styles.text}>
-        <li>
-          <a href="https://reactjs.org/">React</a>
-        </li>
-        <li>
-          <a href="https://vitejs.dev/">Vite</a>
-        </li>
-        <li>
-          <a href="https://ant.design/">Ant Design</a>
-        </li>
-        <li>
-          <a href="https://www.themoviedb.org/documentation/api">TMDb API</a>
-        </li>
-      </ul>
-
-      <Title className={styles.title}>
-        /Things I learned making this project
-      </Title>
-      <ul className={styles.text}>
-        <li>
-          <a href="https://reactrouter.com/web/guides/quick-start">
-            React Router
-          </a>
-        </li>
-        <li>
-          <a href="https://cssgrid.io/">CSS Grid</a>
-        </li>
-        <li>
-          <a href="https://create-react-app.dev/docs/adding-a-css-modules-stylesheet">
-            CSS Modules
-          </a>
-        </li>
-        <li>State management with React Context.</li>
-        <li>Modern frontend tooling with Vite.</li>
-      </ul>
+      <Title className={styles.title}>/Source Code</Title>
+      <Paragraph className={styles.text}>
+        <a href="https://github.com/HtetOoWaiYan/movie-posters" target="_blank" rel="noopener noreferrer">
+          <GithubOutlined style={{ fontSize: '24px', verticalAlign: 'middle', marginRight: '8px' }} />
+          View on GitHub
+        </a>
+      </Paragraph>
     </Typography>
   );
 });
