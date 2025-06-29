@@ -35,8 +35,8 @@ const PosterList = () => {
   if (fromSearch) {
     breadcrumbItems.push({
       title: (
-        <Link to={`/search/${searchQuery}`}>
-          <SearchOutlined />
+        <Link to={`/search/${searchQuery}`} style={{ display: "flex" }}>
+          <SearchOutlined style={{ marginRight: 5 }} />
           <span>Search: {searchQuery}</span>
         </Link>
       ),
@@ -44,8 +44,8 @@ const PosterList = () => {
   } else {
     breadcrumbItems.push({
       title: (
-        <Link to="/">
-          <HomeOutlined />
+        <Link to="/" style={{ display: "flex" }}>
+          <HomeOutlined style={{ marginRight: 5 }} />
           <span>Home</span>
         </Link>
       ),
@@ -66,13 +66,6 @@ const PosterList = () => {
   return (
     <div>
       <Breadcrumb className={styles.breadcrumb} items={breadcrumbItems} />
-      {movieSelected && movieSelected.title ? (
-        <Title className={styles.title}>
-          {movieSelected.title} ({movieSelected.release_date?.substring(0, 4)})
-        </Title>
-      ) : (
-        <Title className={styles.title}>Loading Movie...</Title>
-      )}
       <div className={styles.posters}>
         {posters && posters.length > 0 ? (
           posters.map((poster, i) => (

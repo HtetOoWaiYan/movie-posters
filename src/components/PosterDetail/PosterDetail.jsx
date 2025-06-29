@@ -51,8 +51,8 @@ const PosterDetail = () => {
   if (fromSearch) {
     breadcrumbItems.push({
       title: (
-        <Link to={`/search/${searchQuery}`}>
-          <SearchOutlined />
+        <Link to={`/search/${searchQuery}`} style={{ display: "flex" }}>
+          <SearchOutlined style={{ marginRight: 5 }} />
           <span>Search: {searchQuery}</span>
         </Link>
       ),
@@ -60,8 +60,8 @@ const PosterDetail = () => {
   } else {
     breadcrumbItems.push({
       title: (
-        <Link to="/">
-          <HomeOutlined />
+        <Link to="/" style={{ display: "flex" }}>
+          <HomeOutlined style={{ marginRight: 5 }} />
           <span>Home</span>
         </Link>
       ),
@@ -98,11 +98,11 @@ const PosterDetail = () => {
         <Meta
           title={`${movieSelected.title} (${movieSelected.release_date?.substring(
             0,
-            4
+            4,
           )}) Poster | Movie Posters`}
           description={`Poster of ${movieSelected.title} (${movieSelected.release_date?.substring(
             0,
-            4
+            4,
           )})`}
           image={`https://image.tmdb.org/t/p/w1280/${poster.file_path}`}
         />
