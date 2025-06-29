@@ -12,7 +12,7 @@ const PosterForList = React.memo((props) => {
         searchQuery: props.searchQuery,
       }}
       <img
-        src={`https://image.tmdb.org/t/p/w1280/${props.poster.file_path}`}
+        src={`https://image.tmdb.org/t/p/w500/${props.poster.file_path}`}
         alt="poster"
         className={styles.poster}
       />

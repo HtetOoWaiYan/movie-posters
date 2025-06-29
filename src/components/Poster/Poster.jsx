@@ -16,7 +16,7 @@ const Poster = React.memo((props) => {
         title={`${props.movie.title} (${props.movie.release_date && props.movie.release_date.substring(0, 4)})`}
       >
         <img
-          src={`https://image.tmdb.org/t/p/w1280/${props.movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`}
           alt={`${props.movie.title} (${props.movie.release_date && props.movie.release_date.substring(0, 4)})`}
           className={styles.poster}
         />
