@@ -4,13 +4,13 @@ import styles from "./PosterForList.module.css";
 
 const PosterForList = React.memo((props) => {
   return (
-    <Link
+    <Link>
       to={`/posters/${props.movie_id}/${props.poster_id}`}
-      state={{
+      state=
+      {{
         fromSearch: props.fromSearch,
         searchQuery: props.searchQuery,
       }}
-    >
       <img
         src={`https://image.tmdb.org/t/p/w1280/${props.poster.file_path}`}
         alt="poster"
@@ -19,5 +19,7 @@ const PosterForList = React.memo((props) => {
     </Link>
   );
 });
+
+PosterForList.displayName = "PosterForList";
 
 export default PosterForList;

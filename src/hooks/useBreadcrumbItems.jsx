@@ -1,6 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { HomeOutlined, SearchOutlined, PictureOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  SearchOutlined,
+  PictureOutlined,
+} from "@ant-design/icons";
 
 const useBreadcrumbItems = (movieSelected, movie_id, poster_id, location) => {
   const fromSearch = location.state?.fromSearch || false;

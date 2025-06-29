@@ -25,4 +25,6 @@ const Posters = React.memo((props) => {
   );
 });
 
+Posters.displayName = "Posters";
+
 export default Posters;

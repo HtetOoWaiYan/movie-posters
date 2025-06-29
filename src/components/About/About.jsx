@@ -69,4 +69,6 @@ const About = React.memo(() => {
   );
 });
 
+About.displayName = "About";
+
 export default About;

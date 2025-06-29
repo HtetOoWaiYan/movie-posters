@@ -1,14 +1,12 @@
 import styles from "./PosterList.module.css";
+import { Breadcrumb, Empty, Spin } from "antd";
 import React, { useState, useEffect } from "react";
-import { Breadcrumb, Empty, Spin, Typography } from "antd";
-import { Link, useParams, useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
 import { useMovie } from "../../context/MovieContext.jsx";
 import { usePosters } from "../../context/PosterContext.jsx";
 import PosterForList from "../PosterForList/PosterForList.jsx";
-
-const { Title } = Typography;
 
 const PosterList = React.memo(() => {
   const { movie_id } = useParams();
@@ -27,7 +25,12 @@ const PosterList = React.memo(() => {
     loadData();
   }, [movie_id, fetchMovie, fetchPosters]);
 
-  const { breadcrumbItems, fromSearch, searchQuery } = useBreadcrumbItems(movie, movie_id, undefined, location);
+  const { breadcrumbItems, fromSearch, searchQuery } = useBreadcrumbItems(
+    movie,
+    movie_id,
+    undefined,
+    location,
+  );
 
   return (
     <div>
@@ -54,5 +57,7 @@ const PosterList = React.memo(() => {
     </div>
   );
 });
+
+PosterList.displayName = "PosterList";
 
 export default PosterList;

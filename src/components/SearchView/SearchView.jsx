@@ -4,7 +4,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import styles from "./SearchView.module.css";
-import Posters from "../Posters/Posters.jsx";
 import { useMovieList } from "../../context/MovieListContext.jsx";
 import Meta from "../Meta/Meta.jsx";
 
@@ -52,5 +51,7 @@ const SearchView = () => {
     </div>
   );
 };
+
+SearchView.displayName = "SearchView";
 
 export default SearchView;

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import React from "react";
+import { Helmet } from "react-helmet";
 
 const Meta = React.memo(({ title, description, image }) => {
   return (
@@ -11,6 +11,8 @@ const Meta = React.memo(({ title, description, image }) => {
       <meta property="og:image" content={image} />
     </Helmet>
   );
-})
+});
+
+Meta.displayName = "Meta";
 
 export default Meta;

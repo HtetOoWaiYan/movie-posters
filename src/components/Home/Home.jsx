@@ -5,7 +5,6 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 import styles from "./Home.module.css";
-import Posters from "../Posters/Posters.jsx";
 import { useMovieList } from "../../context/MovieListContext.jsx";
 import Meta from "../Meta/Meta.jsx";
 
@@ -65,5 +64,7 @@ const Home = () => {
     </div>
   );
 };
+
+Home.displayName = "Home";
 
 export default Home;

@@ -25,4 +25,6 @@ const Poster = React.memo((props) => {
   );
 });
 
+Poster.displayName = "Poster";
+
 export default Poster;

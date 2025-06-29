@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
 import styles from "./PosterDetail.module.css";
-import { Link, useParams, useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useParams, useLocation } from "react-router-dom";
 import { Breadcrumb, Button, Popover, Typography } from "antd";
-import {
-  EyeOutlined,
-  PictureOutlined,
-  QuestionCircleOutlined,
-} from "@ant-design/icons";
-import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
+import { EyeOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+
+import Meta from "../Meta/Meta.jsx";
 import { useMovie } from "../../context/MovieContext.jsx";
 import { usePosters } from "../../context/PosterContext.jsx";
-import Meta from "../Meta/Meta.jsx";
+import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
 const { Text, Title } = Typography;
 
@@ -45,7 +42,12 @@ const PosterDetail = React.memo(() => {
     loadData();
   }, [movie_id, fetchMovie, fetchPosters]);
 
-  const { breadcrumbItems, fromSearch, searchQuery } = useBreadcrumbItems(movie, movie_id, poster_id, location);
+  const { breadcrumbItems } = useBreadcrumbItems(
+    movie,
+    movie_id,
+    poster_id,
+    location,
+  );
 
   const movieSelected = movie;
   const poster = posters
@@ -110,5 +112,7 @@ const PosterDetail = React.memo(() => {
     </div>
   );
 });
+
+PosterDetail.displayName = "PosterDetail";
 
 export default PosterDetail;
