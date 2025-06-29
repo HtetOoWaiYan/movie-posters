@@ -1,8 +1,10 @@
 ## About
 
-Movie Posters is a responsive and user-friendly website for discovering and downloading movie posters.
+Welcome to Movie Posters, your go-to destination for discovering and downloading high-quality movie posters with unparalleled ease.
 
-The purpose of making this website is for me to practice [React](https://reactjs.org) and to serve it as my [CS50x](https://www.edx.org/course/cs50s-introduction-to-computer-science) final project.
+This project was born out of a personal frustration: the struggle to find a dedicated, user-friendly platform for movie posters. As someone who often needs specific poster images for graphic design or content creation, I found existing websites cumbersome, cluttered, and not focused on the core need of simply viewing and downloading posters.
+
+Movie Posters aims to solve this by offering a clean, minimal, and intuitive experience. No more navigating through endless clicks or dealing with distracting elements. Here, you get straight to what you need: a vast collection of movie posters, readily available for viewing and download, designed for efficiency and a seamless user experience.
 
 Demo video - [link](https://youtu.be/UMwJDp4oZ9Y)
 
@@ -21,10 +23,6 @@ Demo video - [link](https://youtu.be/UMwJDp4oZ9Y)
 - [Ant Design](https://ant.design)
 - [TMDb API](https://www.themoviedb.org/documentation/api)
 
-## Things I learned making this project
+## License
 
-- [React Router](https://reactrouter.com/web/guides/quick-start)
-- [CSS Grid](https://cssgrid.io)
-- [CSS Modules](https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
-- State management with React Context.
-- Modern frontend tooling with Vite.
+This project is licensed under the [Mozilla Public License 2.0](LICENSE).
