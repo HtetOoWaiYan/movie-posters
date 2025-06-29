@@ -13,7 +13,7 @@ const PosterForList = React.memo((props) => {
         searchQuery: props.searchQuery,
       }}
       className={styles.posterForListContainer}
-      >
+    >
       {!imageLoaded && <div className={styles.skeleton}></div>}
       <img
         src={`https://image.tmdb.org/t/p/w500/${props.poster.file_path}`}
