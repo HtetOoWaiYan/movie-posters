@@ -51,7 +51,7 @@ const Home = () => {
         />
         <Select
           value={value}
-          defaultValue="lucy"
+          defaultValue="popular"
           onChange={handleChange}
           className={styles.select}
         >

@@ -2,11 +2,12 @@ import React from "react";
 import { Empty, Spin } from "antd";
 import Posters from "../Posters/Posters.jsx";
 import styles from "./MovieListDisplay.module.css";
+import sharedStyles from "../../shared.module.css";
 
 const MovieListDisplay = ({ movies, loading, query, children }) => {
   return (
     <div className={styles.container}>
-      <div className={styles.inputs}>
+      <div className={sharedStyles.inputs}>
         <div></div>
         {children}{" "}
         {/* This will render the specific search/filter input for Home or SearchView */}
