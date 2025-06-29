@@ -1,15 +1,14 @@
 import styles from "./PosterDetail.module.css";
 import React, { useEffect, useState } from "react";
 import { useParams, useLocation } from "react-router-dom";
-import { Breadcrumb, Button, Popover, Typography } from "antd";
-import { EyeOutlined, QuestionCircleOutlined } from "@ant-design/icons";
+import { Breadcrumb, Button, Typography } from "antd";
 
 import Meta from "../Meta/Meta.jsx";
 import { useMovie } from "../../context/MovieContext.jsx";
 import { usePosters } from "../../context/PosterContext.jsx";
 import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
-const { Text, Title } = Typography;
+const { Title } = Typography;
 
 const PosterDetail = React.memo(() => {
   const { movie_id, poster_id } = useParams();
@@ -18,19 +17,7 @@ const PosterDetail = React.memo(() => {
   const { posters, fetchPosters } = usePosters();
   const [loading, setLoading] = useState(true);
 
-  // For download-information button
-  const content = (
-    <p>
-      Due to{" "}
-      <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy">
-        same-origin policy
-      </a>
-      ,<br />
-      a download button cannot be included
-      <br />
-      as the data comes from TMDb API.
-    </p>
-  );
+  
 
   useEffect(() => {
     const loadData = async () => {
@@ -73,35 +60,43 @@ const PosterDetail = React.memo(() => {
           />
           <Breadcrumb className={styles.breadcrumb} items={breadcrumbItems} />
           <div className={styles.poster_detail}>
-            <div className={styles.image_space}>
               <img
                 src={`https://image.tmdb.org/t/p/w500/${poster?.file_path}`}
                 alt="poster"
                 className={styles.poster}
               />
-              <Text code className={styles.image_size}>
-                {poster?.width} x {poster?.height} pixels
-              </Text>
-            </div>
             <div className={styles.information}>
               <Title className={styles.title}>
                 {movieSelected.title} (
                 {movieSelected.release_date?.substring(0, 4)})
               </Title>
               <div>
-                <Button
-                  icon={<EyeOutlined />}
-                  size="middle"
-                  href={`https://image.tmdb.org/t/p/w500/${poster.file_path}`}
-                  target="_blank"
-                >
-                  View in Browser
-                </Button>
-                <Popover placement="top" content={content}>
-                  <Button type="link">
-                    <QuestionCircleOutlined />
-                  </Button>
-                </Popover>
+                <div className={styles.sizeButtonsGrid}>
+                  {[{
+                    width: 92,
+                    label: "92 x 138\npixels"
+                  }, {
+                    width: 154,
+                    label: "154 x 231\npixels"
+                  }, {
+                    width: 185,
+                    label: "185 x 277\npixels"
+                  }, {
+                    width: 342,
+                    label: "342 x 513\npixels"
+                  }, {
+                    width: 500,
+                    label: "500 x 750\npixels"
+                  }, {
+                    width: 780,
+                    label: "780 x 1170\npixels"
+                  }, {
+                    width: 'original',
+                    label: "Original\nresolution"
+                  }].map(size => <Button key={size.width} className={styles.sizeButton} href={`https://image.tmdb.org/t/p/${size.width === 'original' ? 'original' : `w${size.width}`}/${poster.file_path}`} target="_blank" rel="noopener noreferrer">
+                      {size.label}
+                    </Button>)}
+                </div>
               </div>
             </div>
           </div>
