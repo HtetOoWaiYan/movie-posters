@@ -21,7 +21,12 @@ const Home = () => {
     fetchMoviesBySort(value);
   }, [value, fetchMoviesBySort]);
 
-  const handleSearch = (query) => navigate(`/search/${query}`);
+  const handleSearch = (query) => {
+    if (query.trim() === "") {
+      return;
+    }
+    navigate(`/search/${query}`);
+  };
 
   function handleChange(value) {
     setValue(value);

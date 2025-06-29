@@ -17,10 +17,16 @@ const SearchView = () => {
   const [value, setValue] = useState(query);
 
   const handleSearch = (searchQuery) => {
+    if (searchQuery.trim() === "") {
+      return;
+    }
     navigate(`/search/${searchQuery}`);
   };
 
   useEffect(() => {
+    if (query.trim() === "") {
+      return;
+    }
     searchMovies(query);
   }, [query, searchMovies]);
 
