@@ -6,7 +6,7 @@ import { Link, useLocation } from "react-router-dom";
 
 const { Header } = Layout;
 
-const NavBar = () => {
+const NavBar = React.memo(() => {
   return (
     <Header className={styles.header}>
       <div className={styles.viewpoint}>
@@ -40,6 +40,6 @@ const NavBar = () => {
       </div>
     </Header>
   );
-};
+});
 
 export default NavBar;

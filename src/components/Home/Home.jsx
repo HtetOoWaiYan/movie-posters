@@ -1,4 +1,6 @@
-import { Empty, Input, Select, Spin } from "antd";
+import { Select } from "antd";
+import { Input } from "antd";
+import MovieListDisplay from "../MovieListDisplay/MovieListDisplay.jsx";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -40,8 +42,7 @@ const Home = () => {
         description="A website to search, view and download movie posters."
         image="/logo512.png"
       />
-      <div className={styles.inputs}>
-        <div></div>
+      <MovieListDisplay movies={movies} loading={loading}>
         <Search
           enterButton
           size="large"
@@ -60,13 +61,7 @@ const Home = () => {
           <Option value="now_playing">Now Playing</Option>
           <Option value="upcoming">Upcoming</Option>
         </Select>
-      </div>
-      {loading ? (
-        <Spin size="large" className={styles.spin} />
-      ) : (
-        <Posters movies={movies} />
-      )}
-      {movies.length === 0 && !loading ? <Empty /> : ""}
+      </MovieListDisplay>
     </div>
   );
 };

@@ -1,4 +1,5 @@
-import { Empty, Input, Spin } from "antd";
+import { Input } from "antd";
+import MovieListDisplay from "../MovieListDisplay/MovieListDisplay.jsx";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -37,8 +38,7 @@ const SearchView = () => {
         description={`Search results for "${query}" on Movie Posters.`}
         image="/logo512.png"
       />
-      <div className={styles.inputs}>
-        <div></div>
+      <MovieListDisplay movies={movies} loading={loading} query={query}>
         <Search
           enterButton
           value={value}
@@ -48,13 +48,7 @@ const SearchView = () => {
           onSearch={(searchQuery) => handleSearch(searchQuery)}
           className={styles.search}
         />
-      </div>
-      {loading ? (
-        <Spin size="large" className={styles.spin} />
-      ) : (
-        <Posters movies={movies} fromSearch={true} searchQuery={query} />
-      )}
-      {movies.length === 0 && !loading ? <Empty /> : ""}
+      </MovieListDisplay>
     </div>
   );
 };

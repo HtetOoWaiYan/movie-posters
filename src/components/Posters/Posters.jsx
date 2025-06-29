@@ -3,7 +3,7 @@ import Poster from "../Poster/Poster.jsx";
 import styles from "./Posters.module.css";
 import Meta from "../Meta/Meta.jsx";
 
-const Posters = (props) => {
+const Posters = React.memo((props) => {
   return (
     <div className={styles.posters}>
       <Meta
@@ -23,6 +23,6 @@ const Posters = (props) => {
       })}
     </div>
   );
-};
+});
 
 export default Posters;

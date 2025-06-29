@@ -5,7 +5,7 @@ import Meta from "../Meta/Meta.jsx";
 
 const { Paragraph, Title } = Typography;
 
-const About = () => {
+const About = React.memo(() => {
   return (
     <Typography className={styles.article}>
       <Meta
@@ -67,6 +67,6 @@ const About = () => {
       </ul>
     </Typography>
   );
-};
+});
 
 export default About;

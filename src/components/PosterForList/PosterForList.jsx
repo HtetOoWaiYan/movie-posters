@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./PosterForList.module.css";
 
-const PosterForList = (props) => {
+const PosterForList = React.memo((props) => {
   return (
     <Link
       to={`/posters/${props.movie_id}/${props.poster_id}`}
@@ -18,6 +18,6 @@ const PosterForList = (props) => {
       />
     </Link>
   );
-};
+});
 
 export default PosterForList;

@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./Poster.module.css";
 
-const Poster = (props) => {
+const Poster = React.memo((props) => {
   return (
     <div>
       <Link
@@ -23,6 +23,6 @@ const Poster = (props) => {
       </Link>
     </div>
   );
-};
+});
 
 export default Poster;

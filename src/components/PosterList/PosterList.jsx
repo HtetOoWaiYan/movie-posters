@@ -2,7 +2,7 @@ import styles from "./PosterList.module.css";
 import React, { useState, useEffect } from "react";
 import { Breadcrumb, Empty, Spin, Typography } from "antd";
 import { Link, useParams, useLocation } from "react-router-dom";
-import { HomeOutlined, SearchOutlined } from "@ant-design/icons";
+import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
 import { useMovie } from "../../context/MovieContext.jsx";
 import { usePosters } from "../../context/PosterContext.jsx";
@@ -10,7 +10,7 @@ import PosterForList from "../PosterForList/PosterForList.jsx";
 
 const { Title } = Typography;
 
-const PosterList = () => {
+const PosterList = React.memo(() => {
   const { movie_id } = useParams();
   const location = useLocation();
   const { movie, fetchMovie } = useMovie();
@@ -27,41 +27,7 @@ const PosterList = () => {
     loadData();
   }, [movie_id, fetchMovie, fetchPosters]);
 
-  const movieSelected = movie;
-  const fromSearch = location.state?.fromSearch || false;
-  const searchQuery = location.state?.searchQuery || "";
-
-  const breadcrumbItems = [];
-  if (fromSearch) {
-    breadcrumbItems.push({
-      title: (
-        <Link to={`/search/${searchQuery}`} style={{ display: "flex" }}>
-          <SearchOutlined style={{ marginRight: 5 }} />
-          <span>Search: {searchQuery}</span>
-        </Link>
-      ),
-    });
-  } else {
-    breadcrumbItems.push({
-      title: (
-        <Link to="/" style={{ display: "flex" }}>
-          <HomeOutlined style={{ marginRight: 5 }} />
-          <span>Home</span>
-        </Link>
-      ),
-    });
-  }
-
-  breadcrumbItems.push({
-    title:
-      movieSelected && movieSelected.title ? (
-        <Link to={`/posters/${movie_id}`}>
-          {movieSelected.title} ({movieSelected.release_date?.substring(0, 4)})
-        </Link>
-      ) : (
-        "Loading Movie..."
-      ),
-  });
+  const { breadcrumbItems, fromSearch, searchQuery } = useBreadcrumbItems(movie, movie_id, undefined, location);
 
   return (
     <div>
@@ -72,7 +38,7 @@ const PosterList = () => {
             <PosterForList
               key={poster.file_path}
               poster={poster}
-              movie={movieSelected}
+              movie={movie}
               movie_id={movie_id}
               poster_id={i}
               fromSearch={fromSearch}
@@ -87,6 +53,6 @@ const PosterList = () => {
       </div>
     </div>
   );
-};
+});
 
 export default PosterList;

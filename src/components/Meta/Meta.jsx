@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-const Meta = ({ title, description, image }) => {
+const Meta = React.memo(({ title, description, image }) => {
   return (
     <Helmet>
       <title>{title}</title>
@@ -11,6 +11,6 @@ const Meta = ({ title, description, image }) => {
       <meta property="og:image" content={image} />
     </Helmet>
   );
-};
+})
 
 export default Meta;

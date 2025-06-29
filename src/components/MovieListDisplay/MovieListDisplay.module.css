@@ -1,0 +1,15 @@
+.container {
+  /* Add styles for the container if needed */
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.spin {
+  display: block;
+  margin: 50px auto;
+}
