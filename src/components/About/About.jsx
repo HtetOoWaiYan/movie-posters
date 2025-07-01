@@ -14,13 +14,13 @@ const About = React.memo(() => {
         description="About the Movie Posters website."
         image="/logo512.png"
       />
-      <Title className={styles.title}>/About</Title>
+      <Title className={styles.title}>About</Title>
       <Paragraph className={styles.text}>
         Welcome to Movie Posters, your go-to destination for discovering and
         downloading high-quality movie posters with unparalleled ease.
       </Paragraph>
 
-      <Title className={styles.title}>/Our Purpose</Title>
+      <Title className={styles.title}>Purpose</Title>
       <Paragraph className={styles.text}>
         This project was born out of a personal frustration: the struggle to
         find a dedicated, user-friendly platform for movie posters. As someone
@@ -36,7 +36,7 @@ const About = React.memo(() => {
         and download, designed for efficiency and a seamless user experience.
       </Paragraph>
 
-      <Title className={styles.title}>/Source Code</Title>
+      <Title className={styles.title}>Source Code</Title>
       <Paragraph className={styles.text}>
         <a
           href="https://github.com/HtetOoWaiYan/movie-posters"
