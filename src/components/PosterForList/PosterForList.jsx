@@ -16,7 +16,7 @@ const PosterForList = React.memo((props) => {
     >
       {!imageLoaded && <div className={styles.skeleton}></div>}
       <img
-        src={`https://image.tmdb.org/t/p/w500/${props.poster.file_path}`}
+        src={`https://image.tmdb.org/t/p/w342/${props.poster.file_path}`}
         alt="poster"
         className={`${styles.poster} ${imageLoaded ? styles.loaded : styles.hidden}`}
         loading="lazy"

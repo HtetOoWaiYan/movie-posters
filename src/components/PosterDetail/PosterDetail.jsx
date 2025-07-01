@@ -54,12 +54,12 @@ const PosterDetail = React.memo(() => {
               0,
               4,
             )})`}
-            image={`https://image.tmdb.org/t/p/w500/${poster?.file_path?.startsWith("/") ? poster.file_path.substring(1) : poster.file_path}`}
+            image={`https://image.tmdb.org/t/p/w342/${poster?.file_path?.startsWith("/") ? poster.file_path.substring(1) : poster.file_path}`}
           />
           <Breadcrumb className={styles.breadcrumb} items={breadcrumbItems} />
           <div className={styles.poster_detail}>
             <img
-              src={`https://image.tmdb.org/t/p/w500/${poster?.file_path?.startsWith("/") ? poster.file_path.substring(1) : poster.file_path}`}
+              src={`https://image.tmdb.org/t/p/w342/${poster?.file_path?.startsWith("/") ? poster.file_path.substring(1) : poster.file_path}`}
               alt="poster"
               className={styles.poster}
             />

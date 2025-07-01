@@ -19,7 +19,7 @@ const Poster = React.memo((props) => {
       >
         {!imageLoaded && <div className={styles.skeleton}></div>}
         <img
-          src={`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w342/${props.movie.poster_path}`}
           alt={`${props.movie.title} (${props.movie.release_date && props.movie.release_date.substring(0, 4)})`}
           className={`${styles.poster} ${imageLoaded ? styles.loaded : styles.hidden}`}
           loading="lazy"
