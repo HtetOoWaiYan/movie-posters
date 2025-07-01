@@ -1,7 +1,6 @@
 @import "./colors.css";
 @import "antd/dist/reset.css";
 
-
 html {
   overflow-y: scroll;
 }

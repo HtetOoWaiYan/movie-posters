@@ -1,14 +1,16 @@
-import React from "react";
-import { Layout } from "antd";
+import React, { Suspense, lazy } from "react";
+import { Layout, Spin } from "antd";
 import styles from "./App.module.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./components/Home/Home.jsx";
-import About from "./components/About/About.jsx";
 import NavBar from "./components/NavBar/NavBar.jsx";
-import PosterList from "./components/PosterList/PosterList.jsx";
-import SearchView from "./components/SearchView/SearchView.jsx";
-import PosterDetail from "./components/PosterDetail/PosterDetail.jsx";
+const Home = lazy(() => import("./components/Home/Home.jsx"));
+const About = lazy(() => import("./components/About/About.jsx"));
+const PosterList = lazy(() => import("./components/PosterList/PosterList.jsx"));
+const SearchView = lazy(() => import("./components/SearchView/SearchView.jsx"));
+const PosterDetail = lazy(
+  () => import("./components/PosterDetail/PosterDetail.jsx"),
+);
 
 const { Content, Footer } = Layout;
 
@@ -21,17 +23,21 @@ const App = () => {
             <NavBar />
             <Content className={styles.content}>
               <div className={styles.viewpoint}>
-                <Routes>
-                  <Route path="/about" element={<About />} />
-                  <Route path="/" element={<Home />} />
-                  <Route path="/by/:sort" element={<Home />} />
-                  <Route path="/search/:query" element={<SearchView />} />
-                  <Route path="/posters/:movie_id" element={<PosterList />} />
-                  <Route
-                    path="/posters/:movie_id/:poster_id"
-                    element={<PosterDetail />}
-                  />
-                </Routes>
+                <Suspense
+                  fallback={<Spin size="large" className={styles.spin} />}
+                >
+                  <Routes>
+                    <Route path="/about" element={<About />} />
+                    <Route path="/" element={<Home />} />
+                    <Route path="/by/:sort" element={<Home />} />
+                    <Route path="/search/:query" element={<SearchView />} />
+                    <Route path="/posters/:movie_id" element={<PosterList />} />
+                    <Route
+                      path="/posters/:movie_id/:poster_id"
+                      element={<PosterDetail />}
+                    />
+                  </Routes>
+                </Suspense>
               </div>
             </Content>
           </div>
