@@ -1,6 +1,6 @@
-import React, { Suspense, lazy } from "react";
 import { Layout, Spin } from "antd";
 import styles from "./App.module.css";
+import { Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import NavBar from "./components/NavBar/NavBar.jsx";

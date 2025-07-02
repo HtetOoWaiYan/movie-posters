@@ -1,4 +1,3 @@
-import React from "react";
 import Poster from "../Poster/Poster.jsx";
 import styles from "./Posters.module.css";
 import Meta from "../Meta/Meta.jsx";
@@ -11,16 +10,17 @@ const Posters = React.memo((props) => {
         description="A website to search, view and download movie posters."
         image="/logo512.png"
       />
-      {props.movies && props.movies.map((movie) => {
-        return (
-          <Poster
-            key={movie.id}
-            movie={movie}
-            fromSearch={props.fromSearch}
-            searchQuery={props.searchQuery}
-          />
-        );
-      })}
+      {props.movies &&
+        props.movies.map((movie) => {
+          return (
+            <Poster
+              key={movie.id}
+              movie={movie}
+              fromSearch={props.fromSearch}
+              searchQuery={props.searchQuery}
+            />
+          );
+        })}
     </div>
   );
 });

@@ -1,4 +1,3 @@
-import React from "react";
 import logo from "../../logo.png";
 import { Layout, Menu } from "antd";
 import styles from "./NavBar.module.css";

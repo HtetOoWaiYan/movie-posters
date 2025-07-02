@@ -1,19 +1,16 @@
-import React from "react";
 import { Breadcrumb, Empty, Spin } from "antd";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useLocation } from "react-router-dom";
 
 import styles from "./PosterList.module.css";
-import { useMovie } from "../../context/MovieContext.jsx";
-import { usePosters } from "../../context/PosterContext.jsx";
+import { fetchMovieById } from "../../api/movies.js";
+import { fetchPostersById } from "../../api/posters.js";
 import PosterForList from "../PosterForList/PosterForList.jsx";
 import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
 const PosterList = React.memo(() => {
-  const { movie_id } = useParams();
   const location = useLocation();
-  const { fetchMovieById } = useMovie();
-  const { fetchPostersById } = usePosters();
+  const { movie_id } = useParams();
 
   const { data: movie, isLoading: isLoadingMovie } = useQuery({
     queryKey: ["movie", movie_id],

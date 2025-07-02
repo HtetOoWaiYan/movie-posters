@@ -1,8 +1,8 @@
-import React from "react";
 import { Typography } from "antd";
 import { GithubOutlined } from "@ant-design/icons";
-import styles from "./About.module.css";
+
 import Meta from "../Meta/Meta.jsx";
+import styles from "./About.module.css";
 
 const { Paragraph, Title } = Typography;
 

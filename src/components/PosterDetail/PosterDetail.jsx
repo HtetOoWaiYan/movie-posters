@@ -1,21 +1,18 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { useParams, useLocation } from "react-router-dom";
 import { Breadcrumb, Button, Typography, Spin } from "antd";
 
 import Meta from "../Meta/Meta.jsx";
 import styles from "./PosterDetail.module.css";
-import { useMovie } from "../../context/MovieContext.jsx";
-import { usePosters } from "../../context/PosterContext.jsx";
+import { fetchMovieById } from "../../api/movies.js";
+import { fetchPostersById } from "../../api/posters.js";
 import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
 const { Title } = Typography;
 
 const PosterDetail = React.memo(() => {
-  const { movie_id, poster_id } = useParams();
   const location = useLocation();
-  const { fetchMovieById } = useMovie();
-  const { fetchPostersById } = usePosters();
+  const { movie_id, poster_id } = useParams();
 
   const { data: movie, isLoading: isLoadingMovie } = useQuery({
     queryKey: ["movie", movie_id],
@@ -171,4 +168,3 @@ const PosterDetail = React.memo(() => {
 PosterDetail.displayName = "PosterDetail";
 
 export default PosterDetail;
-

@@ -1,13 +1,12 @@
-import { Select } from "antd";
-import { Input } from "antd";
-import MovieListDisplay from "../MovieListDisplay/MovieListDisplay.jsx";
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { Input, Select } from "antd";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useParams, useNavigate } from "react-router-dom";
 
-import styles from "./Home.module.css";
-import { useMovieList } from "../../context/MovieListContext.jsx";
 import Meta from "../Meta/Meta.jsx";
+import styles from "./Home.module.css";
+import { getMoviesBySort, searchMoviesFn } from "../../api/movies.js";
+import MovieListDisplay from "../MovieListDisplay/MovieListDisplay.jsx";
 
 const { Search } = Input;
 const { Option } = Select;
@@ -15,7 +14,6 @@ const { Option } = Select;
 const Home = () => {
   const { sort } = useParams();
   const navigate = useNavigate();
-  const { getMoviesBySort, searchMoviesFn } = useMovieList();
 
   const [sortType, setSortType] = useState(sort || "popular");
   const [searchQuery, setSearchQuery] = useState("");
@@ -23,9 +21,7 @@ const Home = () => {
   const { data: movies, isLoading: loading } = useQuery({
     queryKey: ["movies", sortType, searchQuery],
     queryFn: () =>
-      searchQuery
-        ? searchMoviesFn(searchQuery)
-        : getMoviesBySort(sortType),
+      searchQuery ? searchMoviesFn(searchQuery) : getMoviesBySort(sortType),
   });
 
   useEffect(() => {

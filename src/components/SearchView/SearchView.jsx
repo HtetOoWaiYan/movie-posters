@@ -1,19 +1,18 @@
 import { Input } from "antd";
-import MovieListDisplay from "../MovieListDisplay/MovieListDisplay.jsx";
-import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { useParams, useNavigate } from "react-router-dom";
 
-import styles from "./SearchView.module.css";
-import { useMovieList } from "../../context/MovieListContext.jsx";
 import Meta from "../Meta/Meta.jsx";
+import styles from "./SearchView.module.css";
+import { searchMoviesFn } from "../../api/movies.js";
+import MovieListDisplay from "../MovieListDisplay/MovieListDisplay.jsx";
 
 const { Search } = Input;
 
 const SearchView = () => {
   const { query } = useParams();
   const navigate = useNavigate();
-  const { searchMoviesFn } = useMovieList();
 
   const [currentSearchQuery, setCurrentSearchQuery] = useState(query);
 

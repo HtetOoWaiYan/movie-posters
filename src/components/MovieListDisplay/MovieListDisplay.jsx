@@ -1,4 +1,3 @@
-import React from "react";
 import { Empty, Spin } from "antd";
 import Posters from "../Posters/Posters.jsx";
 import styles from "./MovieListDisplay.module.css";
