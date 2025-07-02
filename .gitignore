@@ -17,8 +17,6 @@
 /dist
 
 # misc
-/src/componentHierarchy.txt
-TODO.txt
 .DS_Store
 .env.local
 .env.development.local

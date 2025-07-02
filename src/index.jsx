@@ -1,5 +1,6 @@
 import "./index.css";
 import React from "react";
+import { Alert } from "antd";
 import { createRoot } from "react-dom/client";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";
@@ -10,10 +11,12 @@ const queryClient = new QueryClient();
 
 function ErrorFallback({ error }) {
   return (
-    <div role="alert">
-      <p>Something went wrong:</p>
-      <pre>{error.message}</pre>
-    </div>
+    <Alert
+      message="Something went wrong"
+      description={error.message}
+      type="error"
+      showIcon
+    />
   );
 }
 

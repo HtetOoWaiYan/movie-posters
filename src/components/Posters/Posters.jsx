@@ -1,3 +1,4 @@
+import React from "react";
 import Poster from "../Poster/Poster.jsx";
 import styles from "./Posters.module.css";
 import Meta from "../Meta/Meta.jsx";
