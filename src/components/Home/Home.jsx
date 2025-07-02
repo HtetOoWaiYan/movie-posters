@@ -3,6 +3,7 @@ import { Input } from "antd";
 import MovieListDisplay from "../MovieListDisplay/MovieListDisplay.jsx";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 
 import styles from "./Home.module.css";
 import { useMovieList } from "../../context/MovieListContext.jsx";
@@ -14,23 +15,38 @@ const { Option } = Select;
 const Home = () => {
   const { sort } = useParams();
   const navigate = useNavigate();
-  const { movies, loading, fetchMoviesBySort } = useMovieList();
+  const { getMoviesBySort, searchMoviesFn } = useMovieList();
 
-  const [value, setValue] = useState(sort ? sort : "popular");
+  const [sortType, setSortType] = useState(sort || "popular");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const { data: movies, isLoading: loading } = useQuery({
+    queryKey: ["movies", sortType, searchQuery],
+    queryFn: () =>
+      searchQuery
+        ? searchMoviesFn(searchQuery)
+        : getMoviesBySort(sortType),
+  });
 
   useEffect(() => {
-    fetchMoviesBySort(value);
-  }, [value, fetchMoviesBySort]);
+    if (sort) {
+      setSortType(sort);
+    }
+  }, [sort]);
 
   const handleSearch = (query) => {
     if (query.trim() === "") {
+      setSearchQuery("");
+      navigate(`/by/${sortType}`);
       return;
     }
+    setSearchQuery(query);
     navigate(`/search/${query}`);
   };
 
   function handleChange(value) {
-    setValue(value);
+    setSortType(value);
+    setSearchQuery("");
     navigate(`/by/${value}`);
   }
 
@@ -46,11 +62,11 @@ const Home = () => {
           enterButton
           size="large"
           placeholder="Search movies"
-          onSearch={(query) => handleSearch(query)}
+          onSearch={handleSearch}
           className={styles.search}
         />
         <Select
-          value={value}
+          value={sortType}
           defaultValue="popular"
           onChange={handleChange}
           className={styles.select}

@@ -11,7 +11,7 @@ const Posters = React.memo((props) => {
         description="A website to search, view and download movie posters."
         image="/logo512.png"
       />
-      {props.movies.map((movie) => {
+      {props.movies && props.movies.map((movie) => {
         return (
           <Poster
             key={movie.id}

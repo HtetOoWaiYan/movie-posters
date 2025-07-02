@@ -16,7 +16,7 @@ const MovieListDisplay = ({ movies, loading, query, children }) => {
       ) : (
         <Posters movies={movies} fromSearch={!!query} searchQuery={query} />
       )}
-      {movies.length === 0 && !loading ? <Empty /> : ""}
+      {movies && movies.length === 0 && !loading ? <Empty /> : ""}
     </div>
   );
 };

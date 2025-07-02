@@ -1,9 +1,10 @@
-import styles from "./PosterDetail.module.css";
-import React, { useEffect, useState } from "react";
+import React from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useParams, useLocation } from "react-router-dom";
-import { Breadcrumb, Button, Typography } from "antd";
+import { Breadcrumb, Button, Typography, Spin } from "antd";
 
 import Meta from "../Meta/Meta.jsx";
+import styles from "./PosterDetail.module.css";
 import { useMovie } from "../../context/MovieContext.jsx";
 import { usePosters } from "../../context/PosterContext.jsx";
 import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
@@ -13,19 +14,22 @@ const { Title } = Typography;
 const PosterDetail = React.memo(() => {
   const { movie_id, poster_id } = useParams();
   const location = useLocation();
-  const { movie, fetchMovie } = useMovie();
-  const { posters, fetchPosters } = usePosters();
-  const [loading, setLoading] = useState(true);
+  const { fetchMovieById } = useMovie();
+  const { fetchPostersById } = usePosters();
 
-  useEffect(() => {
-    const loadData = async () => {
-      setLoading(true);
-      await fetchMovie(movie_id);
-      await fetchPosters(movie_id);
-      setLoading(false);
-    };
-    loadData();
-  }, [movie_id, fetchMovie, fetchPosters]);
+  const { data: movie, isLoading: isLoadingMovie } = useQuery({
+    queryKey: ["movie", movie_id],
+    queryFn: () => fetchMovieById(movie_id),
+    enabled: !!movie_id,
+  });
+
+  const { data: posters, isLoading: isLoadingPosters } = useQuery({
+    queryKey: ["posters", movie_id],
+    queryFn: () => fetchPostersById(movie_id),
+    enabled: !!movie_id,
+  });
+
+  const loading = isLoadingMovie || isLoadingPosters;
 
   const { breadcrumbItems } = useBreadcrumbItems(
     movie,
@@ -42,7 +46,7 @@ const PosterDetail = React.memo(() => {
   return (
     <div>
       {loading ? (
-        <div>Loading poster details...</div>
+        <Spin size="large" className={styles.spin} />
       ) : movieSelected && poster ? (
         <>
           <Meta
@@ -167,3 +171,4 @@ const PosterDetail = React.memo(() => {
 PosterDetail.displayName = "PosterDetail";
 
 export default PosterDetail;
+

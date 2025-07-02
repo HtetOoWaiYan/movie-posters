@@ -1,29 +1,33 @@
-import styles from "./PosterList.module.css";
+import React from "react";
 import { Breadcrumb, Empty, Spin } from "antd";
-import React, { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { useParams, useLocation } from "react-router-dom";
-import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
+import styles from "./PosterList.module.css";
 import { useMovie } from "../../context/MovieContext.jsx";
 import { usePosters } from "../../context/PosterContext.jsx";
 import PosterForList from "../PosterForList/PosterForList.jsx";
+import useBreadcrumbItems from "../../hooks/useBreadcrumbItems";
 
 const PosterList = React.memo(() => {
   const { movie_id } = useParams();
   const location = useLocation();
-  const { movie, fetchMovie } = useMovie();
-  const { posters, fetchPosters } = usePosters();
-  const [loading, setLoading] = useState(true);
+  const { fetchMovieById } = useMovie();
+  const { fetchPostersById } = usePosters();
 
-  useEffect(() => {
-    const loadData = async () => {
-      setLoading(true);
-      await fetchMovie(movie_id);
-      await fetchPosters(movie_id);
-      setLoading(false);
-    };
-    loadData();
-  }, [movie_id, fetchMovie, fetchPosters]);
+  const { data: movie, isLoading: isLoadingMovie } = useQuery({
+    queryKey: ["movie", movie_id],
+    queryFn: () => fetchMovieById(movie_id),
+    enabled: !!movie_id,
+  });
+
+  const { data: posters, isLoading: isLoadingPosters } = useQuery({
+    queryKey: ["posters", movie_id],
+    queryFn: () => fetchPostersById(movie_id),
+    enabled: !!movie_id,
+  });
+
+  const loading = isLoadingMovie || isLoadingPosters;
 
   const { breadcrumbItems, fromSearch, searchQuery } = useBreadcrumbItems(
     movie,
